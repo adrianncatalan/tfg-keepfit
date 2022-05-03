@@ -28,7 +28,7 @@ class Server {
         //Nos creamos una propiedad con la ruta de /users
         this.userPath = '/users';
 
-        //Requerimos el paquete para usar los handlebars para express(hbs)
+        //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
         this.app.set('view engine', 'hbs');
 
         //Hacemos la conexión a la base de datos
@@ -69,29 +69,34 @@ class Server {
             res.render('register')
         })
 
-        //Rutas o urls a las views de la aplicación
+        //Rutas o urls a las views de la aplicación - home
         this.app.get('/home', (req, res) => {
             res.render('home')
         })
 
-        //Rutas o urls a las views de la aplicación
+        //Rutas o urls a las views de la aplicación - forgotPassword
         this.app.get('/forgotPassword', (req, res) => {
             res.render('forgotPassword');
         })
 
-        //Rutas o urls a las views de la aplicación
+        //Rutas o urls a las views de la aplicación - about
         this.app.get('/about', (req, res) => {
             res.render('about')
         })
 
-        //Rutas o urls a las views de la aplicación
+        //Rutas o urls a las views de la aplicación - privacyPolicy
         this.app.get('/privacyPolicy', (req, res) => {
             res.render('privacyPolicy');
         })
 
-        //Rutas o urls a las views de la aplicación
+        //Rutas o urls a las views de la aplicación - cookiePolicy
         this.app.get('/cookiePolicy', (req, res) => {
             res.render('cookiePolicy')
+        })
+
+        //Rutas o urls a las views de la aplicación - pageNotFound
+        this.app.get('/*', (req, res) => {
+            res.render('pageNotFound')
         })
     }
 
@@ -101,7 +106,6 @@ class Server {
             console.log(`Servidor corriendo en el puerto ${this.port}`);
         })
     }
-
 }
 
 //Exportamos el servidor

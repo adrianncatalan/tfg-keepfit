@@ -40,10 +40,34 @@ const UserSchema = Schema({
     img: {
         type: String,
     },
+    //Fecha de creación del usuario
     create_at: {
         type: Date,
         default: Date.now,
     },
-})
+    //Tipos de roles de los usuarios
+    rol: {
+        type: String,
+        required: true,
+        emun: ['ADMIN_ROLE', 'USER_ROLE']
+    },
+    //El state nos permite saber si se ha eliminado un usuario (True: Existe - False: Eliminado)
+    state: {
+        type: Boolean,
+        default: true,
+    },
+    //Nos permite saber si fue creado con google (True: Creado con google - Fals: Creado con el register)
+    google: {
+        type: Boolean,
+        default: false,
+    },
+});
+
+//Este método me permite crear una función y puedo seleccionar que campos se pueden visualizar
+//Debe ser siempre una función normal, porque vamos a utilizar el this
+// UserSchema.methods.toJSON = function () {
+//     const { __v, password, img, create_at, _id, google, state, rol, ...user } = this.toObject();
+//     return user;
+// }
 
 module.exports = model('User', UserSchema);

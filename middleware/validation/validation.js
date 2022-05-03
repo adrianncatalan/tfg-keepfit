@@ -8,7 +8,7 @@ const { validationResult } = require('express-validator');
 
 //Creo mi middleware personalizado para la validar los campos del registro del front
 //El next nos permite que si se validan todos los campos, pasamos al siguiente middleware
-const usersRegisterValidation = (req, res, next) => {
+const validation = (req, res, next) => {
 
     //Guardo los errores de la request
     const errors = validationResult(req);
@@ -25,5 +25,5 @@ const usersRegisterValidation = (req, res, next) => {
 
 //Exportamos nuestros middlewares personalizados
 module.exports = {
-    usersRegisterValidation,
+    validation,
 }

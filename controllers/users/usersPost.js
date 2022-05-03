@@ -7,35 +7,17 @@ const { request, response } = require('express');
 const bcryptjs = require('bcryptjs');
 
 //Importamos nuestro modelo de user, lo colocamos en mayúscula porque vamos a instanciar el usuario
-const Usuario = require('../../models/userModel');
+const User = require('../../models/userModel');
 
 //Nombre de la constante que tiene la función
 //Lógica del endpoint POST
 const usersPost = async (req = request, res = response) => {
 
     //Recuperamos todo lo que se introduce en el body
-    const { name, surname, age, gender, height, weight, email, phone, password, img, create_at } = req.body;
+    const { name, surname, age, gender, height, weight, email, phone, password, img, create_at, rol } = req.body;
 
     //Instanciamos nuestro modelo de usuario
-    const usuario = new Usuario({ name, surname, age, gender, height, weight, email, phone, password, img, create_at });
-
-    //Guardamos en una constante la búsqueda del email y phone si esta registrado
-    const emailExist = await Usuario.findOne({ email });
-    const phoneExist = await Usuario.findOne({ phone });
-
-    //Verificar si el email esta registrado y mandamos un mensaje de error
-    if (emailExist) {
-        return res.status(400).json({
-            msg: 'El email ya está registrado con otro usuario'
-        });
-    }
-
-    //Verificar si el email esta registrado y mandamos un mensaje de error
-    if (phoneExist) {
-        return res.status(400).json({
-            msg: 'El número de teléfono ya está registrado con otro usuario'
-        });
-    }
+    const usuario = new User({ name, surname, age, gender, height, weight, email, phone, password, img, create_at, rol });
 
     //Número de vueltas para hashear el password, por defecto es 10
     const salt = bcryptjs.genSaltSync();
@@ -50,7 +32,6 @@ const usersPost = async (req = request, res = response) => {
         msg: 'Soy el endpoint post',
         usuario
     });
-
 }
 
 //Exportamos nuestras funciones como objetos para usarlo en el directorio Routes
