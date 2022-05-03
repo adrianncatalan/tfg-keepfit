@@ -67,6 +67,7 @@ const UserSchema = Schema({
 //Debe ser siempre una función normal, porque vamos a utilizar el this
 // UserSchema.methods.toJSON = function () {
 //     const { __v, password, img, create_at, _id, google, state, rol, ...user } = this.toObject();
+//     user.uid = _id; //Transformamos visualmente el _id por uid
 //     return user;
 // }
 
