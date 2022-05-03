@@ -28,6 +28,9 @@ class Server {
         //Nos creamos una propiedad con la ruta de /users
         this.userPath = '/users';
 
+        //Me creo mi ruta de autenticación
+        this.authPath = '/auth';
+
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
         this.app.set('view engine', 'hbs');
 
@@ -63,6 +66,7 @@ class Server {
 
         //Podemos colocar todas las rutas que precise nuestra aplicación
         //Dependiendo de la petición que se haga, get, post etc... se ejecutará el bloque de código correspondiente
+        this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/users'));
 
         this.app.get('/register', (req, res) => {
