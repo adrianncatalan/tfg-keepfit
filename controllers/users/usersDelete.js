@@ -3,10 +3,23 @@
 //Requerimos Request y Response de Express para usar sus métodos
 const { request, response } = require('express');
 
+//Importamos nuestro modelo de user
+const User = require('../../models/userModel');
+
 //Lógica del endpoint DELETE
-const usersDelete = (req = request, res = response) => {
+const usersDelete = async (req = request, res = response) => {
+
+    const { id } = req.params;
+
+    //Eliminado físico del usuario de la base de datos - NO ES RECOMENDABLE USAR
+    // const usuario = await User.findByIdAndDelete(id);
+
+    //Eliminado del usuario para mantener la integridad referencial - SI ES RECOMENDABLE USAR
+    const usuario = await User.findByIdAndUpdate(id, { state: false });
+
+    //Monstramos al usuario eliminado
     res.json({
-        msg: 'Soy el endpoint delete'
+        usuario
     });
 }
 

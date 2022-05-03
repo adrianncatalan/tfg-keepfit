@@ -50,7 +50,11 @@ router.put('/:id', [
 router.patch('/', usersPatch);
 
 //Endpoint DELETE
-router.delete('/', usersDelete);
+router.delete('/:id', [
+    check('id', 'No es un Id válido').isMongoId(),
+    check('id').custom(existeUsuarioPorId),
+    validation
+], usersDelete);
 
 //Exportamos el método Router
 module.exports = router;
