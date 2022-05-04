@@ -1,11 +1,17 @@
 //Requerimos express para desplegar nuestro servidor
 const express = require('express');
 
+//Requerimos morgan
+const morgan = require('morgan');
+
 //Requiero los Cors
 const cors = require('cors');
 
 //Requiero mi paquete hbs para realizar mis parciales
-var hbs = require('hbs');
+const hbs = require('hbs');
+
+
+const path = require('path');
 
 //Requiero la conexión a la base de datos
 const { dbConnection } = require('../database/config')
@@ -34,6 +40,9 @@ class Server {
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
         this.app.set('view engine', 'hbs');
 
+        //Por alguna razón la ruta absoluta esta en models, se ha pasado el partial al directorio models
+        hbs.registerPartials(path.join(__dirname, '/partials'));
+        
         //Hacemos la conexión a la base de datos
         this.connectionDB();
 
@@ -59,6 +68,12 @@ class Server {
 
         //Nos permite ir al sitio web por defecto de la aplicación
         this.app.use(express.static('public'));
+
+        //Analiza las requests entrantes con cargas útiles codificadas en urlencoded y se basa en body-parser
+        this.app.use(express.urlencoded({ extended: false }));
+
+        //Me permite ver por consola cada petición que hago al servidor detalladamente
+        this.app.use(morgan('dev'));
     }
 
     //Creamos un método routes, aquí definimos nuestras rutas
@@ -69,46 +84,52 @@ class Server {
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/users'));
 
+        //Rutas o urls a las views de la aplicación - register
         this.app.get('/register', (req, res) => {
             res.render('register')
-        })
+        });
 
         //Rutas o urls a las views de la aplicación - home
         this.app.get('/home', (req, res) => {
             res.render('home')
-        })
+        });
 
         //Rutas o urls a las views de la aplicación - forgotPassword
         this.app.get('/forgotPassword', (req, res) => {
             res.render('forgotPassword');
-        })
+        });
 
         //Rutas o urls a las views de la aplicación - about
         this.app.get('/about', (req, res) => {
             res.render('about')
-        })
+        });
 
         //Rutas o urls a las views de la aplicación - privacyPolicy
         this.app.get('/privacyPolicy', (req, res) => {
             res.render('privacyPolicy');
-        })
+        });
 
         //Rutas o urls a las views de la aplicación - cookiePolicy
         this.app.get('/cookiePolicy', (req, res) => {
             res.render('cookiePolicy')
-        })
+        });
 
         //Rutas o urls a las views de la aplicación - pageNotFound
         this.app.get('/*', (req, res) => {
             res.render('pageNotFound')
-        })
+        });
+
+        //Rutas o urls a las views de la aplicación - pageNotFound
+        this.app.get('/dataNotFound', (req, res) => {
+            res.render('dataNotFound')
+        });
     }
 
     //Este método define el puerto que utiliza el servidor
     listen() {
         this.app.listen(this.port, () => {
             console.log(`Servidor corriendo en el puerto ${this.port}`);
-        })
+        });
     }
 }
 

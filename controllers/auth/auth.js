@@ -13,43 +13,57 @@ const { generationJWT } = require('../../helpers/generationJWT');
 //Controlador que permite hacer login al usuario - Parte lógica
 const login = async (req = request, res = response) => {
 
+    //Desestrucuturamos el email y el password del body y comparamos con lo que hay en la base de datos
     const { email, password } = req.body;
 
     try {
-
         //Verificamos si el email existe
         const usuario = await User.findOne({ email });
         if (!usuario) {
-            return res.status(400).json({
-                msg: 'Email no es correcto',
-            })
+
+            return res.render('dataNotFound');
+
+            // return res.status(400).json({
+            //     msg: 'Email no es correcto',
+            // });
         }
 
         //Verificamos si el usuario existe en la base de datos
         if (!usuario.state) {
-            return res.status(400).json({
-                msg: 'Usuario no existe en la base de datos',
-            })
+
+            return res.render('dataNotFound')
+
+            // return res.status(400).json({
+            //     msg: 'Usuario no existe en la base de datos',
+            // });
         }
 
         //Verificamos que el password concuerde con el de la base de datos
         const validarPassword = bcryptjs.compareSync(password, usuario.password);
         if (!validarPassword) {
-            return res.status(400).json({
-                msg: 'Password no es correcto',
-            })
+
+            return res.render('dataNotFound')
+
+            //Código para el backend
+            // return res.status(400).json({
+            //     msg: 'Password no es correcto',
+            // });
         }
 
         //Generar JWT - Json Web Token
         const token = await generationJWT(usuario.id);
 
-        //Mostramos lo que se envía
-        res.json({
-            msg: 'Login Ok',
-            usuario,
-            token,
-        });
-        //En caso de error, mostraos el error
+        //Si el login es exitoso, el usuario va al home
+        res.render('home');
+
+        //Mostramos lo que se envía en el backend
+        // res.json({
+        //     msg: 'Login Ok',
+        //     usuario,
+        //     token,
+        // });
+
+        //En caso de error, mostramos el error
     } catch (error) {
         console.log(error);
         res.status(500).json({

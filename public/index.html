@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeepFit - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./js/login.js"></script>
 </head>
 
 <body>
@@ -29,10 +28,8 @@
                 </div>
 
                 <div class="mt-8">
-
-
                     <div class="mt-6">
-                        <div class="space-y-6">
+                        <form action="/auth/login" method="POST" class="space-y-6">
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">
                                     Email address
@@ -77,7 +74,7 @@
                                     Sign in
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
