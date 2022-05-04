@@ -12,10 +12,24 @@
             <dl class="divide-y divide-gray-200">
                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                     <dt class="text-sm font-medium text-gray-500">
+                        Age
+                    </dt>
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        <span class="flex-grow">{{age}} years old</span>
+                        <span class="ml-4 flex-shrink-0">
+                            <button type="button"
+                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Update
+                            </button>
+                        </span>
+                    </dd>
+                </div>
+                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                    <dt class="text-sm font-medium text-gray-500">
                         Height
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">Altura</span>
+                        <span class="flex-grow">{{height}} cm</span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
                                 class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -29,7 +43,7 @@
                         Weight
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">Peso</span>
+                        <span class="flex-grow">{{weight}} kg</span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
                                 class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -38,7 +52,7 @@
                         </span>
                     </dd>
                 </div>
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                {{!-- <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
                     <dt class="text-sm font-medium text-gray-500">
                         Body mass index
                     </dt>
@@ -115,7 +129,7 @@
                             </button>
                         </span>
                     </dd>
-                </div>
+                </div> --}}
             </dl>
         </div>
     </div>

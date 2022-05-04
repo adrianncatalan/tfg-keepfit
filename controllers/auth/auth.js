@@ -19,6 +19,11 @@ const login = async (req = request, res = response) => {
     try {
         //Verificamos si el email existe
         const usuario = await User.findOne({ email });
+
+        //Desestructuro los datos que preciso para mostrar y modificar en el front del usuario que se ha logeado
+        const { name, age, surname, height, weight } = usuario;
+
+        //Si no lo encuentra fue porqu el correo fue introducido incorrectamente
         if (!usuario) {
 
             return res.render('dataNotFound');
@@ -54,7 +59,13 @@ const login = async (req = request, res = response) => {
         const token = await generationJWT(usuario.id);
 
         //Si el login es exitoso, el usuario va al home
-        res.render('home');
+        res.render('home', {
+            name: name,
+            age: age,
+            surname: surname,
+            height: height,
+            weight: weight,
+        });
 
         //Mostramos lo que se envía en el backend
         // res.json({
@@ -67,7 +78,7 @@ const login = async (req = request, res = response) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            msg: 'Hable con su adminastrador de redes'
+            msg: 'Hable con su administrador de redes'
         });
     }
 }
