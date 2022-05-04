@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 
 //Creamos nuestra función para emplear el JWT del usuario que inicie sesión
-const generarJWT = (uid = '') => {
+const generationJWT = (uid = '') => {
 
     return new Promise((resolve, reject) => {
         const payload = { uid };
@@ -23,5 +23,5 @@ const generarJWT = (uid = '') => {
 
 //Exportamos nuestro bloque de código
 module.exports = {
-    generarJWT,
+    generationJWT,
 }

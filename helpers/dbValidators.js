@@ -5,7 +5,7 @@ const Role = require('../models/rolModel');
 const User = require('../models/userModel');
 
 //Con esta función valido los roles de usuarios con mi base de datos
-const esRolValido = async (rol = '') => {
+const isRolValid = async (rol = '') => {
     const existeRol = await Role.findOne({ rol });
     if (!existeRol) {
         throw new Error(`El rol ${rol} no está registrado en la base de datos`);
@@ -13,7 +13,7 @@ const esRolValido = async (rol = '') => {
 }
 
 //Con esta función valido el email de los usuarios con mi base de datos
-const esEmailValido = async (email = '') => {
+const isEmailValid = async (email = '') => {
     //Verificar si el email esta registrado y mandamos un mensaje de error
     const existeEmail = await User.findOne({ email });
     if (existeEmail) {
@@ -22,7 +22,7 @@ const esEmailValido = async (email = '') => {
 }
 
 //Con esta función valido el número de teléfono de los usuarios con mi base de datos
-const esPhoneValido = async (phone = '') => {
+const isPhoneValid = async (phone = '') => {
     //Verificar si el teléfono esta registrado y mandamos un mensaje de error
     const phoneExist = await User.findOne({ phone });
     if (phoneExist) {
@@ -31,7 +31,7 @@ const esPhoneValido = async (phone = '') => {
 }
 
 //Con esta función valido si existe el usuario en mi base de datos
-const existeUsuarioPorId = async (id) => {
+const existUserById = async (id) => {
     //Verifico si el correo existe
     const existeUsuario = await (User.findById(id));
     if (!existeUsuario) {
@@ -41,8 +41,8 @@ const existeUsuarioPorId = async (id) => {
 
 //Exportamos las funciones de validación
 module.exports = {
-    esRolValido,
-    esEmailValido,
-    esPhoneValido,
-    existeUsuarioPorId,
+    isRolValid,
+    isEmailValid,
+    isPhoneValid,
+    existUserById,
 }

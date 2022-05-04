@@ -9,7 +9,11 @@ const User = require('../../models/userModel');
 //Lógica del endpoint DELETE
 const usersDelete = async (req = request, res = response) => {
 
+    //Desestructuramos el Id
     const { id } = req.params;
+
+    //Desestructuramos el usuario por referecia del fichero validarJwt
+    const usuarioAutenticado = req.usuario;
 
     //Eliminado físico del usuario de la base de datos - NO ES RECOMENDABLE USAR
     // const usuario = await User.findByIdAndDelete(id);
@@ -19,7 +23,8 @@ const usersDelete = async (req = request, res = response) => {
 
     //Monstramos al usuario eliminado
     res.json({
-        usuario
+        usuario,
+        usuarioAutenticado,
     });
 }
 

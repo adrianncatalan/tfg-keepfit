@@ -8,7 +8,7 @@ const bcryptjs = require('bcryptjs');
 const User = require('../../models/userModel');
 
 //Importamos nuestro fichero de generador de tokens
-const { generarJWT } = require('../../helpers/generarJWT');
+const { generationJWT } = require('../../helpers/generationJWT');
 
 //Controlador que permite hacer login al usuario - Parte lógica
 const login = async (req = request, res = response) => {
@@ -41,7 +41,7 @@ const login = async (req = request, res = response) => {
         }
 
         //Generar JWT - Json Web Token
-        const token = await generarJWT(usuario.id);
+        const token = await generationJWT(usuario.id);
 
         //Mostramos lo que se envía
         res.json({
