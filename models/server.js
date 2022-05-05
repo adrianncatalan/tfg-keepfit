@@ -39,6 +39,9 @@ class Server {
 
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
         this.app.set('view engine', 'hbs');
+        
+        //Solo para visualizar la ruta absoluta de mis partials
+        // console.log(path.join(__dirname));
 
         //Por alguna razón la ruta absoluta esta en models, se ha pasado el partial al directorio models
         hbs.registerPartials(path.join(__dirname, '/partials'));
@@ -86,12 +89,32 @@ class Server {
 
         //Rutas o urls a las views de la aplicación - register
         this.app.get('/register', (req, res) => {
-            res.render('register')
+            res.render('register');
         });
 
         //Rutas o urls a las views de la aplicación - home
         this.app.get('/home', (req, res) => {
-            res.render('home')
+            res.render('home');
+        });
+
+        //Rutas o urls a las views de la aplicación - foodNutrition
+        this.app.get('/foodNutrition', (req, res) => {
+            res.render('foodNutrition');
+        });
+
+        //Rutas o urls a las views de la aplicación - trainingPlans
+        this.app.get('/trainingPlans', (req, res) => {
+            res.render('trainingPlans');
+        });
+
+        //Rutas o urls a las views de la aplicación - myWorkouts
+        this.app.get('/myWorkouts', (req, res) => {
+            res.render('myWorkouts');
+        });
+
+        //Rutas o urls a las views de la aplicación - settings
+        this.app.get('/settings', (req, res) => {
+            res.render('settings');
         });
 
         //Rutas o urls a las views de la aplicación - forgotPassword
@@ -101,7 +124,7 @@ class Server {
 
         //Rutas o urls a las views de la aplicación - about
         this.app.get('/about', (req, res) => {
-            res.render('about')
+            res.render('about');
         });
 
         //Rutas o urls a las views de la aplicación - privacyPolicy

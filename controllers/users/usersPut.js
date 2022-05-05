@@ -27,10 +27,10 @@ const usersPut = async (req = request, res = response) => {
     }
 
     const usuario = await User.findByIdAndUpdate(id, params);
-        res.json({
-            msg: 'Soy el endpoint put',
-            usuario
-        });
+    res.json({
+        msg: 'Soy el endpoint put',
+        usuario
+    });
 }
 
 //Exportamos nuestras funciones como objetos para usarlo en el directorio Routes

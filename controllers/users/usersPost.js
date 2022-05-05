@@ -14,10 +14,10 @@ const User = require('../../models/userModel');
 const usersPost = async (req = request, res = response) => {
 
     //Recuperamos todo lo que se introduce en el body
-    const { name, surname, age, gender, height, weight, email, phone, password, img, create_at, rol } = req.body;
+    const { name, surname, age, gender, height, weight, bodyMassIndex, bodyFatPercentage, boneMass, totalBodyFatWeight, totalMuscleWeight, email, phone, password, img, create_at, rol } = req.body;
 
     //Instanciamos nuestro modelo de usuario
-    const usuario = new User({ name, surname, age, gender, height, weight, email, phone, password, img, create_at, rol });
+    const usuario = new User({ name, surname, age, gender, height, weight, bodyMassIndex, bodyFatPercentage, boneMass, totalBodyFatWeight, totalMuscleWeight, email, phone, password, img, create_at, rol });
 
     //Número de vueltas para hashear el password, por defecto es 10
     const salt = bcryptjs.genSaltSync();

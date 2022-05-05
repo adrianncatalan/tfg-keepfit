@@ -10,6 +10,8 @@ const User = require('../../models/userModel');
 //Importamos nuestro fichero de generador de tokens
 const { generationJWT } = require('../../helpers/generationJWT');
 
+
+
 //Controlador que permite hacer login al usuario - Parte lógica
 const login = async (req = request, res = response) => {
 
@@ -21,7 +23,7 @@ const login = async (req = request, res = response) => {
         const usuario = await User.findOne({ email });
 
         //Desestructuro los datos que preciso para mostrar y modificar en el front del usuario que se ha logeado
-        const { name, age, surname, height, weight } = usuario;
+        const { name, age, surname, height, weight, bodyMassIndex, bodyFatPercentage, boneMass, totalBodyFatWeight, totalMuscleWeight } = usuario;
 
         //Si no lo encuentra fue porqu el correo fue introducido incorrectamente
         if (!usuario) {
@@ -65,6 +67,11 @@ const login = async (req = request, res = response) => {
             surname: surname,
             height: height,
             weight: weight,
+            bodyMassIndex: bodyMassIndex,
+            bodyFatPercentage: bodyFatPercentage,
+            boneMass: boneMass,
+            totalBodyFatWeight: totalBodyFatWeight,
+            totalMuscleWeight: totalMuscleWeight,
         });
 
         //Mostramos lo que se envía en el backend

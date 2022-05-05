@@ -17,9 +17,9 @@
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                         <span class="flex-grow">{{age}} years old</span>
                         <span class="ml-4 flex-shrink-0">
-                            <button type="button"
+                            <button id="edit-1" type="button"
                                 class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Update
+                                Edit
                             </button>
                         </span>
                     </dd>
@@ -31,9 +31,9 @@
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                         <span class="flex-grow">{{height}} cm</span>
                         <span class="ml-4 flex-shrink-0">
-                            <button type="button"
+                            <button id="edit-2" type="button"
                                 class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Update
+                                Edit
                             </button>
                         </span>
                     </dd>
@@ -45,19 +45,19 @@
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                         <span class="flex-grow">{{weight}} kg</span>
                         <span class="ml-4 flex-shrink-0">
-                            <button type="button"
+                            <button id="edit-3" type="button"
                                 class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Update
+                                Edit
                             </button>
                         </span>
                     </dd>
                 </div>
-                {{!-- <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
                     <dt class="text-sm font-medium text-gray-500">
                         Body mass index
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">Índice de masa corporal</span>
+                        <span class="flex-grow">{{bodyMassIndex}}</span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
                                 class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -68,10 +68,10 @@
                 </div>
                 <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
                     <dt class="text-sm font-medium text-gray-500">
-                        body fat percentage
+                        Body fat percentage
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">Porcentaje de grasa corporal</span>
+                        <span class="flex-grow">{{bodyFatPercentage}} %</span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
                                 class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -85,9 +85,7 @@
                         Bone mass
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">
-                            Masa ósea
-                        </span>
+                        <span class="flex-grow">{{boneMass}}</span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
                                 class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -103,7 +101,7 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                         <span class="flex-grow">
-                            Peso total de grasa
+                            {{totalBodyFatWeight}}
                         </span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
@@ -120,7 +118,7 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                         <span class="flex-grow">
-                            Peso total de músculo
+                            {{totalMuscleWeight}}
                         </span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
@@ -129,7 +127,7 @@
                             </button>
                         </span>
                     </dd>
-                </div> --}}
+                </div>
             </dl>
         </div>
     </div>

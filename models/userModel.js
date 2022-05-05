@@ -23,6 +23,21 @@ const UserSchema = Schema({
     weight: {
         type: Number,
     },
+    bodyMassIndex: {
+        type: Number,
+    },
+    bodyFatPercentage: {
+        type: Number,
+    },
+    boneMass: {
+        type: Number,
+    },
+    totalBodyFatWeight: {
+        type: Number,
+    },
+    totalMuscleWeight: {
+        type: Number,
+    },
     email: {
         type: String,
         required: [true, 'El email es obligatorio'],
