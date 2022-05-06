@@ -5,62 +5,27 @@
                 Physiological information
             </h3>
             <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                This is your personal information
+                Here you can calculate your body mass index, body fat
+                percentage, body bone mass, total body fat and total body
+                muscle.
             </p>
         </div>
         <div class="mt-5 border-t border-gray-200">
             <dl class="divide-y divide-gray-200">
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Age
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">{{age}} years old</span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-1" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
-                            </button>
-                        </span>
-                    </dd>
-                </div>
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Height
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">{{height}} cm</span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-2" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
-                            </button>
-                        </span>
-                    </dd>
-                </div>
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Weight
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">{{weight}} kg</span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
-                            </button>
-                        </span>
-                    </dd>
-                </div>
+
                 <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
                     <dt class="text-sm font-medium text-gray-500">
                         Body mass index
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">{{bodyMassIndex}}</span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Calculate
                             </button>
                         </span>
@@ -70,11 +35,15 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Body fat percentage
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">{{bodyFatPercentage}} %</span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Calculate
                             </button>
                         </span>
@@ -84,11 +53,15 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Bone mass
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">{{boneMass}}</span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Calculate
                             </button>
                         </span>
@@ -99,13 +72,17 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Total body fat weight
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">
                             {{totalBodyFatWeight}}
                         </span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Calculate
                             </button>
                         </span>
@@ -116,13 +93,17 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Total muscle weight
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">
                             {{totalMuscleWeight}}
                         </span>
                         <span class="ml-4 flex-shrink-0">
                             <button type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Calculate
                             </button>
                         </span>

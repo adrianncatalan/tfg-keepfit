@@ -158,6 +158,26 @@ class Server {
             res.render('trainingPlans');
         });
 
+        //---------Rutas de las sección de entrenamiento de createTrainingPlan
+        this.app.get('/trainingPlans/createTrainingPlan', (req, res) => {
+            res.render('./trainings/createTrainingPlan/createTrainingPlan');
+        });
+
+        //---------Rutas de las sección de entrenamiento de fitness
+        this.app.get('/trainingPlans/fitness', (req, res) => {
+            res.render('./trainings/fitness/fitness');
+        });
+
+        //---------Rutas de las sección de entrenamiento de cardio
+        this.app.get('/trainingPlans/cardio', (req, res) => {
+            res.render('./trainings/cardio/cardio');
+        });
+
+        //---------Rutas de las sección de entrenamiento de flexibility
+        this.app.get('/trainingPlans/flexibility', (req, res) => {
+            res.render('./trainings/flexibility/flexibility');
+        });
+
         //Rutas o urls a las views de la aplicación - myWorkouts
         this.app.get('/myWorkouts', (req, res) => {
             res.render('myWorkouts');
