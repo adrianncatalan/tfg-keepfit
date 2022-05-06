@@ -39,13 +39,13 @@ class Server {
 
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
         this.app.set('view engine', 'hbs');
-        
+
         //Solo para visualizar la ruta absoluta de mis partials
         // console.log(path.join(__dirname));
 
         //Por alguna razón la ruta absoluta esta en models, se ha pasado el partial al directorio models
         hbs.registerPartials(path.join(__dirname, '/partials'));
-        
+
         //Hacemos la conexión a la base de datos
         this.connectionDB();
 
@@ -100,6 +100,57 @@ class Server {
         //Rutas o urls a las views de la aplicación - foodNutrition
         this.app.get('/foodNutrition', (req, res) => {
             res.render('foodNutrition');
+        });
+
+        //---------Rutas de las secciones de las dietas de food & nutrition - Vegan diets
+        this.app.get('/foodNutrition/veganDiet-1', (req, res) => {
+            res.render('./diets/veganDiet/veganDiet1');
+        });
+
+        this.app.get('/foodNutrition/veganDiet-2', (req, res) => {
+            res.render('./diets/veganDiet/veganDiet2');
+        });
+
+        this.app.get('/foodNutrition/veganDiet-3', (req, res) => {
+            res.render('./diets/veganDiet/veganDiet3');
+        });
+
+        this.app.get('/foodNutrition/veganDiet-4', (req, res) => {
+            res.render('./diets/veganDiet/veganDiet4');
+        });
+
+        //---------Rutas de las secciones de las dietas de food & nutrition - Intermittent fasting diets
+        this.app.get('/foodNutrition/intermittentFastingDiets-1', (req, res) => {
+            res.render('./diets/intermittentFastingDiets/intFastDiets1');
+        });
+
+        this.app.get('/foodNutrition/intermittentFastingDiets-2', (req, res) => {
+            res.render('./diets/intermittentFastingDiets/intFastDiets2');
+        });
+
+        this.app.get('/foodNutrition/intermittentFastingDiets-3', (req, res) => {
+            res.render('./diets/intermittentFastingDiets/intFastDiets3');
+        });
+
+        this.app.get('/foodNutrition/intermittentFastingDiets-4', (req, res) => {
+            res.render('./diets/intermittentFastingDiets/intFastDiets4');
+        });
+
+        //---------Rutas de las secciones de las dietas de food & nutrition - Ketogenic diets
+        this.app.get('/foodNutrition/ketogenicDiet-1', (req, res) => {
+            res.render('./diets/ketogenicDiet/ketDiets1');
+        });
+
+        this.app.get('/foodNutrition/ketogenicDiet-2', (req, res) => {
+            res.render('./diets/ketogenicDiet/ketDiets2');
+        });
+
+        this.app.get('/foodNutrition/ketogenicDiet-3', (req, res) => {
+            res.render('./diets/ketogenicDiet/ketDiets3');
+        });
+
+        this.app.get('/foodNutrition/ketogenicDiet-4', (req, res) => {
+            res.render('./diets/ketogenicDiet/ketDiets4');
         });
 
         //Rutas o urls a las views de la aplicación - trainingPlans
