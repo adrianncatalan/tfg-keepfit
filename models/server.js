@@ -38,7 +38,10 @@ class Server {
         this.authPath = '/auth';
 
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
-        this.app.set('view engine', 'hbs');
+        this.app.set('view engine', 'html');
+
+        //Cambiando el formato .hbs a formato.html
+        this.app.engine('html', require('hbs').__express);
 
         //Solo para visualizar la ruta absoluta de mis partials
         // console.log(path.join(__dirname));
