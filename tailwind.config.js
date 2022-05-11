@@ -3,7 +3,7 @@ module.exports = {
     './views/**/*.{html,js,hbs}',
     './models/**/*.{html,js,hbs}',
     './index.html',
-    ],
+  ],
   theme: {
     extend: {},
   },
