@@ -12,7 +12,7 @@ const dbConnection = async () => {
             useUnifiedTopology: true,
         }
         //Conectamos a la base de datos
-        await mongoose.connect(process.env.MONGODB_CONNECTION, options);
+        await mongoose.createConnection(process.env.MONGODB_CONNECTION, options);
 
         //Mensaje de conexión exitosa
         console.log('Conexión a la base de datos exitosa');
