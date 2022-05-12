@@ -16,7 +16,7 @@ const dbConnection = async () => {
 
         //Mensaje de conexión exitosa
         
-        console.log(process.env.MONGODB_CONNECTION)
+        // console.log(process.env.MONGODB_CONNECTION)
         console.log('Conexión a la base de datos exitosa');
 
         //Atrapamos el error y lo mostranos por consola para resolverlo en caso de que falle
