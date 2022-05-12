@@ -1,5 +1,5 @@
 //Requerimos dotenv para el fichero de configuración de las variables de entorno hagan efecto
-require('dotenv').config({path: '.env'});
+require('dotenv').config({ path: __dirname + '/.env' });
 
 //Requerimos el servidor que hemos creado como clase en el directorio models
 const Server = require('./models/server');

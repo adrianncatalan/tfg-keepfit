@@ -15,6 +15,8 @@ const dbConnection = async () => {
         await mongoose.createConnection(process.env.MONGODB_CONNECTION, options);
 
         //Mensaje de conexión exitosa
+        
+        console.log(process.env.MONGODB_CONNECTION)
         console.log('Conexión a la base de datos exitosa');
 
         //Atrapamos el error y lo mostranos por consola para resolverlo en caso de que falle
