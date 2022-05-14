@@ -23,19 +23,28 @@ const UserSchema = Schema({
     weight: {
         type: Number,
     },
-    bodyMassIndex: {
+    bmi: {
         type: Number,
     },
-    bodyFatPercentage: {
+    boneWeight: {
         type: Number,
     },
-    boneMass: {
+    muscleWeight: {
         type: Number,
     },
-    totalBodyFatWeight: {
+    residualWeight: {
         type: Number,
     },
-    totalMuscleWeight: {
+    fatPercentage: {
+        type: Number,
+    },
+    fatWeight: {
+        type: Number,
+    },
+    wristDiameter: {
+        type: Number,
+    },
+    femurDiameter: {
         type: Number,
     },
     email: {
@@ -52,7 +61,10 @@ const UserSchema = Schema({
         type: String,
         required: [true, 'El password es obligatorio'],
     },
-    img: {
+    imgProfile: {
+        type: String,
+    },
+    imgHeader: {
         type: String,
     },
     //Fecha de creación del usuario
@@ -80,10 +92,10 @@ const UserSchema = Schema({
 
 //Este método me permite crear una función y puedo seleccionar que campos se pueden visualizar
 //Debe ser siempre una función normal, porque vamos a utilizar el this
-// UserSchema.methods.toJSON = function () {
-//     const { __v, password, img, create_at, _id, google, state, rol, ...user } = this.toObject();
-//     user.uid = _id; //Transformamos visualmente el _id por uid
-//     return user;
-// }
+UserSchema.methods.toJSON = function () {
+    const { __v, create_at, _id, google, state, rol, ...user } = this.toObject();
+    user.uid = _id; //Transformamos visualmente el _id por uid
+    return user;
+}
 
 module.exports = model('User', UserSchema);

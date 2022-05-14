@@ -9,6 +9,8 @@ const bcryptjs = require('bcryptjs');
 //Importamos nuestro modelo de user
 const User = require('../../models/userModel');
 
+// const { bmiCal} = require('../calculations/calculations');
+
 //Lógica del endpoint PUT
 const usersPut = async (req = request, res = response) => {
 
@@ -25,6 +27,10 @@ const usersPut = async (req = request, res = response) => {
         //Hashear el password
         params.password = bcryptjs.hashSync(password, salt);
     }
+
+    //Update IMC
+    // const bmiResult = bmiCal(weight, height);
+    // bmi = bmiResult.toFixed(2);
 
     const usuario = await User.findByIdAndUpdate(id, params);
     res.json({

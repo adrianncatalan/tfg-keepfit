@@ -9,3 +9,13 @@ const server = new Server();
 
 //Disparamos el método listen para levantar el servidor de nuestra aplicación
 server.listen();
+
+//Este bloque de código nos permite saber si podemos usar Local Storage en el objeto window
+//Tenemos que instalarnos otras dependencias para que funcione el Local Storage porque estamos en el servidor
+// if (typeof window !== 'undefined') {
+//     console.log('You are on the browser')
+//     // 👉️ can use localStorage here
+// } else {
+//     console.log('You are on the server')
+//     // 👉️ can't use localStorage
+// }

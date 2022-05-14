@@ -33,12 +33,13 @@ const usersGet = async (req = request, res = response) => {
         User.find(query)
             .skip(Number(desde))
             .limit(Number(limite))
+            
     ])
-
+   console.log(users)
     //Podemos ver los registros de los usuarios
     res.json({
         total,
-        users
+        users,
     });
 
 }

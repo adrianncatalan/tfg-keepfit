@@ -6,7 +6,7 @@ const { Router } = require('express');
 const { check } = require('express-validator')
 
 //Importamos nuestro controlador del directorio auth login
-const { login } = require('../controllers/auth/auth');
+const { login, logout } = require('../controllers/auth/auth');
 
 //Importamos nuestro archivo de validaciones
 const { validation } = require('../middleware/validation/validation');
@@ -18,8 +18,10 @@ const router = Router();
 router.post('/login', [
     check('email', 'El email es obligatorio').isEmail(),
     check('password', 'El password es obligatorio').not().isEmpty(),
-    validation
+    validation,
 ], login)
+
+router.get('/logout', logout);
 
 //Exportamos el router
 module.exports = router;

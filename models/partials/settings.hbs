@@ -10,43 +10,58 @@
         </div>
         <div class="mt-5 border-t border-gray-200">
             <dl class="divide-y divide-gray-200">
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Name
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">{{name}}</span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-1" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
-                            </button>
-                        </span>
-                    </dd>
-                </div>
+                <form action="/auth/login" method="GET">
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Name
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                            sm:col-span-2">
+                            <span class="flex-grow">{{name}}</span>
+                            <span class="ml-4 flex-shrink-0">
+                                <button id="edit-1" type="submit"
+                                    class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                    Edit
+                                </button>
+                            </span>
+                        </dd>
+                    </div>
+                </form>
                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                     <dt class="text-sm font-medium text-gray-500">
                         Surname
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">{{surname}}</span>
                         <span class="ml-4 flex-shrink-0">
                             <button id="edit-2" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Edit
                             </button>
                         </span>
                     </dd>
                 </div>
+
                 <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
                     <dt class="text-sm font-medium text-gray-500">
                         Age
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">{{age}} years old</span>
                         <span class="ml-4 flex-shrink-0">
                             <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Edit
                             </button>
                         </span>
@@ -57,11 +72,15 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Gender
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">{{gender}}</span>
                         <span class="ml-4 flex-shrink-0">
                             <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Edit
                             </button>
                         </span>
@@ -72,11 +91,15 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Height
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">{{height}} cm</span>
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
+                        <span class="flex-grow">{{height}} m</span>
                         <span class="ml-4 flex-shrink-0">
                             <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Edit
                             </button>
                         </span>
@@ -87,11 +110,53 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Weight
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">{{weight}} kg</span>
                         <span class="ml-4 flex-shrink-0">
                             <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
+                                Edit
+                            </button>
+                        </span>
+                    </dd>
+                </div>
+
+                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                    <dt class="text-sm font-medium text-gray-500">
+                        Wrist diameter
+                    </dt>
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
+                        <span class="flex-grow">{{wristDiameter}} cm</span>
+                        <span class="ml-4 flex-shrink-0">
+                            <button id="edit-3" type="button"
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
+                                Edit
+                            </button>
+                        </span>
+                    </dd>
+                </div>
+
+                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                    <dt class="text-sm font-medium text-gray-500">
+                        Femur diameter
+                    </dt>
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
+                        <span class="flex-grow">{{femurDiameter}} cm</span>
+                        <span class="ml-4 flex-shrink-0">
+                            <button id="edit-3" type="button"
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Edit
                             </button>
                         </span>
@@ -102,11 +167,15 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Email
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">{{Email}}</span>
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
+                        <span class="flex-grow">{{email}}</span>
                         <span class="ml-4 flex-shrink-0">
                             <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Edit
                             </button>
                         </span>
@@ -117,11 +186,15 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Phone
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">{{phone}}</span>
                         <span class="ml-4 flex-shrink-0">
                             <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Edit
                             </button>
                         </span>
@@ -132,11 +205,15 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Password
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">{{Password}}</span>
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
+                        <span class="flex-grow">**********</span>
                         <span class="ml-4 flex-shrink-0">
                             <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Edit
                             </button>
                         </span>
@@ -147,11 +224,15 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Profile picture
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        <span class="flex-grow">{{img}}</span>
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
+                        <span class="flex-grow">{{imgProfile}}</span>
                         <span class="ml-4 flex-shrink-0">
                             <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Edit
                             </button>
                         </span>
@@ -162,17 +243,21 @@
                     <dt class="text-sm font-medium text-gray-500">
                         Profile header
                     </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
                         <span class="flex-grow">{{imgHeader}}</span>
                         <span class="ml-4 flex-shrink-0">
                             <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
                                 Edit
                             </button>
                         </span>
                     </dd>
                 </div>
-               
+
             </dl>
         </div>
     </div>

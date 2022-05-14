@@ -10,11 +10,14 @@ const cors = require('cors');
 //Requiero mi paquete hbs para realizar mis parciales
 const hbs = require('hbs');
 
+//Requiero mi paquete para validar las sesiones de usuarios logeados
+const session = require('express-session');
 
 const path = require('path');
 
 //Requiero la conexión a la base de datos
-const { dbConnection } = require('../database/config')
+const { dbConnection } = require('../database/config');
+const { logout } = require('../controllers/auth/auth');
 
 //Creamos una clase de nuestro servidor
 class Server {
@@ -30,6 +33,14 @@ class Server {
 
         //Lectura y parseo del body --> Cualquier información la va serializar en formato Json
         this.app.use(express.json());
+
+        //Creamos nuestra sesión
+        this.app.use(session({
+            secret: 'SoyLaContraseña',
+            resave: 'true',
+            saveUninitialized: 'false',
+            // cookie: { maxAge: 5000 }
+        }))
 
         //Nos creamos una propiedad con la ruta de /users
         this.userPath = '/users';
@@ -90,105 +101,170 @@ class Server {
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/users'));
 
+        //Rutas o urls a las views de la aplicación - home
+        this.app.get('/home', (req, res) => {
+            //Si el login es exitoso, el usuario va al home
+            res.render('home', {
+                name: req.session.data.name,
+                surname: req.session.data.surname,
+                age: req.session.data.age,
+                height: req.session.data.height,
+                weight: req.session.data.weight,
+                bmi: req.session.data.bmi,
+                boneWeight: req.session.data.boneWeight,
+                muscleWeight: req.session.data.muscleWeight,
+                residualWeight: req.session.data.residualWeight,
+                fatWeight: req.session.data.fatWeight,
+                fatPercentage: req.session.data.fatPercentage,
+            });
+        });
+
         //Rutas o urls a las views de la aplicación - register
         this.app.get('/register', (req, res) => {
             res.render('register');
         });
 
-        //Rutas o urls a las views de la aplicación - home
-        this.app.get('/home', (req, res) => {
-            res.render('home');
-        });
-
         //Rutas o urls a las views de la aplicación - foodNutrition
         this.app.get('/foodNutrition', (req, res) => {
-            res.render('foodNutrition');
+            res.render('foodNutrition', {
+                uid: req.session.data._id,
+            });
         });
 
         //---------Rutas de las secciones de las dietas de food & nutrition - Vegan diets
         this.app.get('/foodNutrition/veganDiet-1', (req, res) => {
-            res.render('./diets/veganDiet/veganDiet1');
+            res.render('./diets/veganDiet/veganDiet1', {
+                uid: req.session.data._id,
+            });
         });
 
         this.app.get('/foodNutrition/veganDiet-2', (req, res) => {
-            res.render('./diets/veganDiet/veganDiet2');
+            res.render('./diets/veganDiet/veganDiet2', {
+                uid: req.session.data._id,
+            });
         });
 
         this.app.get('/foodNutrition/veganDiet-3', (req, res) => {
-            res.render('./diets/veganDiet/veganDiet3');
+            res.render('./diets/veganDiet/veganDiet3', {
+                uid: req.session.data._id,
+            });
         });
 
         this.app.get('/foodNutrition/veganDiet-4', (req, res) => {
-            res.render('./diets/veganDiet/veganDiet4');
+            res.render('./diets/veganDiet/veganDiet4', {
+                uid: req.session.data._id,
+            });
         });
 
         //---------Rutas de las secciones de las dietas de food & nutrition - Intermittent fasting diets
         this.app.get('/foodNutrition/intermittentFastingDiets-1', (req, res) => {
-            res.render('./diets/intermittentFastingDiets/intFastDiets1');
+            res.render('./diets/intermittentFastingDiets/intFastDiets1', {
+                uid: req.session.data._id,
+            });
         });
 
         this.app.get('/foodNutrition/intermittentFastingDiets-2', (req, res) => {
-            res.render('./diets/intermittentFastingDiets/intFastDiets2');
+            res.render('./diets/intermittentFastingDiets/intFastDiets2', {
+                uid: req.session.data._id,
+            });
         });
 
         this.app.get('/foodNutrition/intermittentFastingDiets-3', (req, res) => {
-            res.render('./diets/intermittentFastingDiets/intFastDiets3');
+            res.render('./diets/intermittentFastingDiets/intFastDiets3', {
+                uid: req.session.data._id,
+            });
         });
 
         this.app.get('/foodNutrition/intermittentFastingDiets-4', (req, res) => {
-            res.render('./diets/intermittentFastingDiets/intFastDiets4');
+            res.render('./diets/intermittentFastingDiets/intFastDiets4', {
+                uid: req.session.data._id,
+            });
         });
 
         //---------Rutas de las secciones de las dietas de food & nutrition - Ketogenic diets
         this.app.get('/foodNutrition/ketogenicDiet-1', (req, res) => {
-            res.render('./diets/ketogenicDiet/ketDiets1');
+            res.render('./diets/ketogenicDiet/ketDiets1', {
+                uid: req.session.data._id,
+            });
         });
 
         this.app.get('/foodNutrition/ketogenicDiet-2', (req, res) => {
-            res.render('./diets/ketogenicDiet/ketDiets2');
+            res.render('./diets/ketogenicDiet/ketDiets2', {
+                uid: req.session.data._id,
+            });
         });
 
         this.app.get('/foodNutrition/ketogenicDiet-3', (req, res) => {
-            res.render('./diets/ketogenicDiet/ketDiets3');
+            res.render('./diets/ketogenicDiet/ketDiets3', {
+                uid: req.session.data._id,
+            });
         });
 
         this.app.get('/foodNutrition/ketogenicDiet-4', (req, res) => {
-            res.render('./diets/ketogenicDiet/ketDiets4');
+            res.render('./diets/ketogenicDiet/ketDiets4', {
+                uid: req.session.data._id,
+            });
         });
 
         //Rutas o urls a las views de la aplicación - trainingPlans
         this.app.get('/trainingPlans', (req, res) => {
-            res.render('trainingPlans');
+            res.render('trainingPlans', {
+                uid: req.session.data._id,
+            });
         });
 
         //---------Rutas de las sección de entrenamiento de createTrainingPlan
         this.app.get('/trainingPlans/createTrainingPlan', (req, res) => {
-            res.render('./trainings/createTrainingPlan/createTrainingPlan');
+            res.render('./trainings/createTrainingPlan/createTrainingPlan', {
+                uid: req.session.data._id,
+            });
         });
 
         //---------Rutas de las sección de entrenamiento de fitness
         this.app.get('/trainingPlans/fitness', (req, res) => {
-            res.render('./trainings/fitness/fitness');
+            res.render('./trainings/fitness/fitness', {
+                uid: req.session.data._id,
+            });
         });
 
         //---------Rutas de las sección de entrenamiento de cardio
         this.app.get('/trainingPlans/cardio', (req, res) => {
-            res.render('./trainings/cardio/cardio');
+            res.render('./trainings/cardio/cardio', {
+                uid: req.session.data._id,
+            });
         });
 
         //---------Rutas de las sección de entrenamiento de flexibility
         this.app.get('/trainingPlans/flexibility', (req, res) => {
-            res.render('./trainings/flexibility/flexibility');
+            res.render('./trainings/flexibility/flexibility', {
+                uid: req.session.data._id,
+            });
         });
 
         //Rutas o urls a las views de la aplicación - myWorkouts
         this.app.get('/myWorkouts', (req, res) => {
-            res.render('myWorkouts');
+            res.render('myWorkouts', {
+                uid: req.session.data._id,
+            });
         });
 
         //Rutas o urls a las views de la aplicación - settings
         this.app.get('/settings', (req, res) => {
-            res.render('settings');
+            res.render('settings', {
+                name: req.session.data.name,
+                surname: req.session.data.surname,
+                age: req.session.data.age,
+                gender: req.session.data.gender,
+                height: req.session.data.height,
+                weight: req.session.data.weight,
+                wristDiameter: req.session.data.wristDiameter,
+                femurDiameter: req.session.data.femurDiameter,
+                email: req.session.data.email,
+                phone: req.session.data.phone,
+                password: req.session.data.password,
+                imgProfile: req.session.data.imgProfile,
+                imgHeader: req.session.data.imgHeader,
+            });
         });
 
         //Rutas o urls a las views de la aplicación - forgotPassword

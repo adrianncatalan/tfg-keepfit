@@ -7,7 +7,7 @@ const generationJWT = (uid = '') => {
     return new Promise((resolve, reject) => {
         const payload = { uid };
         jwt.sign(payload, process.env.SECRETORPRIVATEKEY, {
-            expiresIn: '4h',
+            expiresIn: '1d',
         }, (err, token) => {
             if (err) {
                 console.log(err);
@@ -16,9 +16,6 @@ const generationJWT = (uid = '') => {
             }
         })
     })
-
-
-
 }
 
 //Exportamos nuestro bloque de código
