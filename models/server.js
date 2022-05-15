@@ -17,7 +17,14 @@ const path = require('path');
 
 //Requiero la conexión a la base de datos
 const { dbConnection } = require('../database/config');
-const { logout } = require('../controllers/auth/auth');
+
+//Requiero el paquete de sesión de conexiones de mongo
+const MongoDBSession = require('connect-mongodb-session')(session);
+
+const store = new MongoDBSession({
+    uri: process.env.MONGODB_CONNECTION,
+    collection: 'sessions'
+});
 
 //Creamos una clase de nuestro servidor
 class Server {
@@ -34,12 +41,14 @@ class Server {
         //Lectura y parseo del body --> Cualquier información la va serializar en formato Json
         this.app.use(express.json());
 
-        //Creamos nuestra sesión
+        // Creamos nuestra sesión
         this.app.use(session({
-            secret: 'SoyLaContraseña',
-            resave: 'true',
+            secret: 'SoyLaContraseñaDeLaSesión',
+            resave: 'false',
             saveUninitialized: 'false',
-            // cookie: { maxAge: 5000 }
+            cookie: { maxAge: 60000 },
+            store: store,
+            // cookie: { secure: true }
         }))
 
         //Nos creamos una propiedad con la ruta de /users
@@ -84,7 +93,7 @@ class Server {
         this.app.use(cors());
 
         //Nos permite ir al sitio web por defecto de la aplicación
-        this.app.use(express.static('public'));
+        this.app.use(express.static('views'));
 
         //Analiza las requests entrantes con cargas útiles codificadas en urlencoded y se basa en body-parser
         this.app.use(express.urlencoded({ extended: false }));
@@ -101,13 +110,21 @@ class Server {
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/users'));
 
+        const isAuth = (req, res, next) => {
+            if (req.session.isAuth) {
+                next()
+            } else {
+                res.redirect('/')
+            }
+        }
+
         //Rutas o urls a las views de la aplicación - home
-        this.app.get('/home', (req, res) => {
+        this.app.get('/home', isAuth, (req, res) => {
+            // console.log(req.session)
             //Si el login es exitoso, el usuario va al home
             res.render('home', {
                 name: req.session.data.name,
                 surname: req.session.data.surname,
-                age: req.session.data.age,
                 height: req.session.data.height,
                 weight: req.session.data.weight,
                 bmi: req.session.data.bmi,
@@ -125,131 +142,95 @@ class Server {
         });
 
         //Rutas o urls a las views de la aplicación - foodNutrition
-        this.app.get('/foodNutrition', (req, res) => {
-            res.render('foodNutrition', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition', isAuth, (req, res) => {
+            res.render('foodNutrition')
         });
 
         //---------Rutas de las secciones de las dietas de food & nutrition - Vegan diets
-        this.app.get('/foodNutrition/veganDiet-1', (req, res) => {
-            res.render('./diets/veganDiet/veganDiet1', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/veganDiet-1', isAuth, (req, res) => {
+            res.render('./diets/veganDiet/veganDiet1')
         });
 
-        this.app.get('/foodNutrition/veganDiet-2', (req, res) => {
-            res.render('./diets/veganDiet/veganDiet2', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/veganDiet-2', isAuth, (req, res) => {
+            res.render('./diets/veganDiet/veganDiet2')
         });
 
-        this.app.get('/foodNutrition/veganDiet-3', (req, res) => {
-            res.render('./diets/veganDiet/veganDiet3', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/veganDiet-3', isAuth, (req, res) => {
+            res.render('./diets/veganDiet/veganDiet3')
         });
 
-        this.app.get('/foodNutrition/veganDiet-4', (req, res) => {
+        this.app.get('/foodNutrition/veganDiet-4', isAuth, (req, res) => {
             res.render('./diets/veganDiet/veganDiet4', {
-                uid: req.session.data._id,
+
             });
         });
 
         //---------Rutas de las secciones de las dietas de food & nutrition - Intermittent fasting diets
-        this.app.get('/foodNutrition/intermittentFastingDiets-1', (req, res) => {
-            res.render('./diets/intermittentFastingDiets/intFastDiets1', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/intermittentFastingDiets-1', isAuth, (req, res) => {
+            res.render('./diets/intermittentFastingDiets/intFastDiets1')
         });
 
-        this.app.get('/foodNutrition/intermittentFastingDiets-2', (req, res) => {
-            res.render('./diets/intermittentFastingDiets/intFastDiets2', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/intermittentFastingDiets-2', isAuth, (req, res) => {
+            res.render('./diets/intermittentFastingDiets/intFastDiets2')
         });
 
-        this.app.get('/foodNutrition/intermittentFastingDiets-3', (req, res) => {
-            res.render('./diets/intermittentFastingDiets/intFastDiets3', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/intermittentFastingDiets-3', isAuth, (req, res) => {
+            res.render('./diets/intermittentFastingDiets/intFastDiets3')
         });
 
-        this.app.get('/foodNutrition/intermittentFastingDiets-4', (req, res) => {
-            res.render('./diets/intermittentFastingDiets/intFastDiets4', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/intermittentFastingDiets-4', isAuth, (req, res) => {
+            res.render('./diets/intermittentFastingDiets/intFastDiets4')
         });
 
         //---------Rutas de las secciones de las dietas de food & nutrition - Ketogenic diets
-        this.app.get('/foodNutrition/ketogenicDiet-1', (req, res) => {
-            res.render('./diets/ketogenicDiet/ketDiets1', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/ketogenicDiet-1', isAuth, (req, res) => {
+            res.render('./diets/ketogenicDiet/ketDiets1')
         });
 
-        this.app.get('/foodNutrition/ketogenicDiet-2', (req, res) => {
-            res.render('./diets/ketogenicDiet/ketDiets2', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/ketogenicDiet-2', isAuth, (req, res) => {
+            res.render('./diets/ketogenicDiet/ketDiets2')
         });
 
-        this.app.get('/foodNutrition/ketogenicDiet-3', (req, res) => {
-            res.render('./diets/ketogenicDiet/ketDiets3', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/ketogenicDiet-3', isAuth, (req, res) => {
+            res.render('./diets/ketogenicDiet/ketDiets3')
         });
 
-        this.app.get('/foodNutrition/ketogenicDiet-4', (req, res) => {
-            res.render('./diets/ketogenicDiet/ketDiets4', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/foodNutrition/ketogenicDiet-4', isAuth, (req, res) => {
+            res.render('./diets/ketogenicDiet/ketDiets4')
         });
 
         //Rutas o urls a las views de la aplicación - trainingPlans
-        this.app.get('/trainingPlans', (req, res) => {
-            res.render('trainingPlans', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/trainingPlans', isAuth, (req, res) => {
+            res.render('trainingPlans')
         });
 
         //---------Rutas de las sección de entrenamiento de createTrainingPlan
-        this.app.get('/trainingPlans/createTrainingPlan', (req, res) => {
-            res.render('./trainings/createTrainingPlan/createTrainingPlan', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/trainingPlans/createTrainingPlan', isAuth, (req, res) => {
+            res.render('./trainings/createTrainingPlan/createTrainingPlan')
         });
 
         //---------Rutas de las sección de entrenamiento de fitness
-        this.app.get('/trainingPlans/fitness', (req, res) => {
-            res.render('./trainings/fitness/fitness', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/trainingPlans/fitness', isAuth, (req, res) => {
+            res.render('./trainings/fitness/fitness')
         });
 
         //---------Rutas de las sección de entrenamiento de cardio
-        this.app.get('/trainingPlans/cardio', (req, res) => {
-            res.render('./trainings/cardio/cardio', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/trainingPlans/cardio', isAuth, (req, res) => {
+            res.render('./trainings/cardio/cardio')
         });
 
         //---------Rutas de las sección de entrenamiento de flexibility
-        this.app.get('/trainingPlans/flexibility', (req, res) => {
-            res.render('./trainings/flexibility/flexibility', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/trainingPlans/flexibility', isAuth, (req, res) => {
+            res.render('./trainings/flexibility/flexibility')
         });
 
         //Rutas o urls a las views de la aplicación - myWorkouts
-        this.app.get('/myWorkouts', (req, res) => {
-            res.render('myWorkouts', {
-                uid: req.session.data._id,
-            });
+        this.app.get('/myWorkouts', isAuth, (req, res) => {
+            res.render('myWorkouts')
         });
 
         //Rutas o urls a las views de la aplicación - settings
-        this.app.get('/settings', (req, res) => {
+        this.app.get('/settings', isAuth, (req, res) => {
             res.render('settings', {
                 name: req.session.data.name,
                 surname: req.session.data.surname,

@@ -18,7 +18,7 @@ const usersPut = async (req = request, res = response) => {
     const { id } = req.params;
 
     //Desestructuro lo que no quiero que se actualice en la base de datos
-    const { _id, password, create_at, rol, state, google, ...params } = req.body;
+    const { _id, create_at, rol, state, google, ...params } = req.body;
 
     //Validar contra base de datos
     if (password) {

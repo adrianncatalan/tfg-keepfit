@@ -14,18 +14,15 @@ const User = require('../../models/userModel');
 const { generationJWT } = require('../../helpers/generationJWT');
 
 const { bmiCal, boneWeightCal, muscleWeightCal, residualWeightMenCal, residualWeightWomenCal, fatPercentageMenCal, fatPercentageWomenCal, fatWeightCal } = require('../../controllers');
-const { stringify } = require('postcss');
-const { json } = require('express/lib/response');
-const { Store } = require('express-session');
 
 //Controlador que permite hacer login al usuario - Parte lógica
 const login = async (req = request, res = response) => {
 
     //Hemos instalado node-localStorage para poder usarlo en el servidor, un genérico de LocalStorage nativo de Js
-    if (typeof localStorage === "undefined" || localStorage === null) {
-        const LocalStorage = require('node-localstorage').LocalStorage;
-        localStorage = new LocalStorage('./scratch');
-    }
+    // if (typeof localStorage === "undefined" || localStorage === null) {
+    //     const LocalStorage = require('node-localstorage').LocalStorage;
+    //     localStorage = new LocalStorage('./scratch');
+    // }
 
     //Desestrucuturamos el email y el password del body y comparamos con lo que hay en la base de datos
     const { email, password } = req.body;
@@ -35,7 +32,7 @@ const login = async (req = request, res = response) => {
         const usuario = await User.findOne({ email });
 
         //Desestructuro los datos que preciso para mostrar y modificar en el front del usuario que se ha logeado
-        let { _id, name, surname, age, gender, height, weight, bmi, boneWeight, muscleWeight, residualWeight, fatPercentage, fatWeight, wristDiameter, femurDiameter } = usuario;
+        const { _id, name, surname, age, gender, height, weight, bmi, boneWeight, muscleWeight, residualWeight, fatPercentage, fatWeight, wristDiameter, femurDiameter } = usuario;
 
         //Si no lo encuentra fue porqu el correo fue introducido incorrectamente
         if (!usuario) {
@@ -69,16 +66,16 @@ const login = async (req = request, res = response) => {
         const token = await generationJWT(usuario.id);
         //Guardamos los datos del usuario en el Local Storage
         //Todavía no hacemos uso adecuado del Local Storage
-        localStorage.setItem('token', token);
-        localStorage.setItem('name', name);
-        localStorage.setItem('surname', surname);
+        // localStorage.setItem('token', token);
+        // localStorage.setItem('name', name);
+        // localStorage.setItem('surname', surname);
         //Guardamos los datos del usuario que inicia sesión
         req.session.data = usuario;
         //----------------------------------------------------------------------------------------------------------------------
 
         //Ejecutamos las funciones de calculos fisiológicos para el usuario logeado
         const bmiResult = bmiCal(weight, height);
-        bmi = bmiResult.toFixed(2);//IMC
+        // bmi = bmiResult.toFixed(2);//IMC
         // console.log(bmi);
 
         const boneWeightResult = boneWeightCal(height, wristDiameter, femurDiameter);
@@ -102,7 +99,7 @@ const login = async (req = request, res = response) => {
         const fatWeightResult = fatWeightCal(weight, fatPercentage)
         // console.log(fatWeightResult.toFixed(2));//fatWeightCal
 
-
+        req.session.isAuth = true;
 
         //Redirigimos al home el usuario logeado
         res.redirect('/home')
@@ -124,14 +121,13 @@ const login = async (req = request, res = response) => {
     }
 }
 
+//Endpoind del logout
 const logout = async (req = request, res = response) => {
-    if (req.sessionID) {
-        req.session.destroy();
-        res.clearCookie('coonect.sid', { path: '/' });
-    }
-    res.redirect('/');
+    req.session.destroy((err) => {
+        if (err) throw err;
+        res.redirect('/');
+    });
 }
-
 
 //Exportamos el controlador
 module.exports = {

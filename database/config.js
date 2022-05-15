@@ -24,7 +24,6 @@ const dbConnection = async () => {
         console.log(error);
         throw new Error('Error al conectar con la base de datos')
     }
-
 }
 //Exportamos la conexión
 module.exports = {

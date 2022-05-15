@@ -21,7 +21,7 @@ router.post('/login', [
     validation,
 ], login)
 
-router.get('/logout', logout);
+router.post('/logout', logout);
 
 //Exportamos el router
 module.exports = router;

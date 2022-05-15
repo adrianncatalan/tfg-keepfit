@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>KeepFit - Home</title>
-        <link rel="stylesheet" href="./auth/styles/main.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeepFit - Home</title>
+    <link rel="stylesheet" href="./auth/styles/main.css">
+    {{!-- <script>
+        window.onload = () => {
+            const btn = document.querySelectorAll('button');
+            for (let i = 0; i < btn.length; i++) {
+                btn[i].addEventListener('click', (e) => {
+                    console.log('hola');
+                });
+            }
+        }
+    </script> --}}
+    
+</head>
 
-    <body>
+<body>
+<script src="./test.js"></script>
+    {{> navBar }}
+    {{> header }}
+    {{> main }}
+    {{> footer }}
 
-        {{> navBar }}
-        {{> header }}
-        {{> main }}
-        {{> footer }}
-
-    </body>
+</body>
 
 </html>
