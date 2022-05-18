@@ -43,33 +43,39 @@
                 </p>
             </div>
             <div class="mt-12">
-                <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                <div class="w-full">
                     <form action="/users/register" method="POST">
+                        {{!-- Inputs nombre --}}
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <div class="mt-1">
-                                <input type="text" name="name" id="name" autocomplete="given-name" maxlength="20"
-                                    placeholder="Enter your first name"
-                                    class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+                            <div class="mt-4">
+                                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                                <div class="mt-1 w-full">
+                                    <input type="text" name="name" id="name" autocomplete="given-name" maxlength="20"
+                                        placeholder="Enter your first name"
+                                        class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <label for="surname" class="block text-sm font-medium text-gray-700">Surname</label>
+                                <div class="mt-1">
+                                    <input type="text" name="surname" id="surname" autocomplete="family-name"
+                                        maxlength="20" placeholder="Enter your surname"
+                                        class="py-3 px-4 block w-11/12 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+                                </div>
                             </div>
                         </div>
+
+                        {{!-- Inputs edad género --}}
                         <div>
-                            <label for="surname" class="block text-sm font-medium text-gray-700">Surname</label>
-                            <div class="mt-1">
-                                <input type="text" name="surname" id="surname" autocomplete="family-name" maxlength="20"
-                                    placeholder="Enter your surname"
-                                    class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-                            </div>
-                        </div>
-                        <div>
+                        <div class="mt-4">
                             <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
                             <div class="mt-1">
-                                <input type="number" name="age" id="age" autocomplete="family-name"
+                                <input type="text" name="age" id="age" autocomplete="family-name" maxlength="2"
                                     placeholder="Enter your age"
                                     class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
                             </div>
                         </div>
-                        <div>
+                        <div class="mt-4">
                             <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
                             <div class="mt-1">
                                 <select name="gender" id="gender"
@@ -80,8 +86,11 @@
                                 </select>
                             </div>
                         </div>
+                        </div>
 
+                        {{!-- Inputs Peso y altura --}}
                         <div>
+                        <div class="mt-4">
                             <label for="height" class="block text-sm font-medium text-gray-700">Height (cm)</label>
                             <div class="mt-1">
                                 <input type="text" name="height" id="height" autocomplete="family-name"
@@ -90,7 +99,7 @@
                             </div>
                         </div>
 
-                        <div>
+                        <div class="mt-4">
                             <label for="weight" class="block text-sm font-medium text-gray-700">Weight (kg)</label>
                             <div class="mt-1">
                                 <input type="text" name="weight" id="weight" autocomplete="family-name"
@@ -98,8 +107,11 @@
                                     class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
                             </div>
                         </div>
+                        </div>
 
+                        {{!-- Inputs wrist y femur diameter --}}
                         <div>
+                        <div class="mt-4">
                             <label for="wrist" class="block text-sm font-medium text-gray-700">Wrist diameter
                                 (cm)</label>
                             <div class="mt-1">
@@ -108,8 +120,7 @@
                                     class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
                             </div>
                         </div>
-
-                        <div>
+                        <div class="mt-4">
                             <label for="femur" class="block text-sm font-medium text-gray-700">Femur diameter
                                 (cm)</label>
                             <div class="mt-1">
@@ -118,8 +129,11 @@
                                     class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
                             </div>
                         </div>
+                        </div>
 
-                        <div class="sm:col-span-2">
+                        {{!-- Inputs email y número de teléfono --}}
+                        <div>
+                        <div class="mt-4">
                             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                             <div class="mt-1">
                                 <input id="email" name="email" type="email" autocomplete="email"
@@ -127,7 +141,7 @@
                                     class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
                             </div>
                         </div>
-                        <div class="sm:col-span-2">
+                        <div class="mt-4">
                             <label for="phone" class="block text-sm font-medium text-gray-700">Phone number</label>
                             <div class="mt-1">
                                 <input id="phone" name="phone" type="tel" autocomplete="tel"
@@ -135,7 +149,10 @@
                                     class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
                             </div>
                         </div>
-                        <div class="sm:col-span-2">
+                        </div>
+
+                        {{!-- Input password --}}
+                        <div class="mt-4">
                             <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                             <div class="mt-1">
                                 <input id="password" name="password" type="password" autocomplete="new-password"
@@ -143,15 +160,8 @@
                                     class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
                             </div>
                         </div>
-                        {{!-- <div class="sm:col-span-2">
-                            <label for="rol" class="block text-sm font-medium text-gray-700">Rol</label>
-                            <div class="mt-1">
-                                <input id="rol" name="rol" type="text"
-                                    autocomplete="rol" placeholder="rol" maxlength="15"
-                                    class="py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
-                            </div>
-                        </div> --}}
-                        <div class="sm:col-span-2">
+
+                        <div class="mt-4">
                             <div class="flex items-start">
                                 <div class="ml-3">
                                     <p class="text-base text-gray-500">
@@ -165,7 +175,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sm:col-span-2">
+                        <div class="mt-4">
                             <button id="btn-register" type="submit"
                                 class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Register
