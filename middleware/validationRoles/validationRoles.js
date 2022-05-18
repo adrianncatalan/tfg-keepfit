@@ -24,7 +24,7 @@ const validationRoles = (req = request, res = response, next) => {
     next();
 }
 
-//Exporto el bloque de código en frma de objeto
+//Exporto el bloque de código en forma de objeto
 module.exports = {
     validationRoles,
 }

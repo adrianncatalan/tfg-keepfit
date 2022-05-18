@@ -21,7 +21,7 @@ const router = Router();
 router.get('/', usersGet);
 
 //Endpoint POST
-router.post('/', [
+router.post('/register', [
     check('name', 'El nombre no es válido').not().isEmpty(),
     check('surname', 'El apellido no es válido').not().isEmpty(),
     check('email', 'El email no es válido').isEmail(),

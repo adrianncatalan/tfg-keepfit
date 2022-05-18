@@ -25,27 +25,37 @@ const UserSchema = Schema({
     },
     bmi: {
         type: Number,
+        default: 0,
     },
     boneWeight: {
         type: Number,
+        default: 0,
     },
     muscleWeight: {
         type: Number,
+        default: 0,
     },
     residualWeight: {
         type: Number,
+        default: 0,
     },
     fatPercentage: {
         type: Number,
+        default: 0,
     },
     fatWeight: {
         type: Number,
+        default: 0,
     },
     wristDiameter: {
         type: Number,
+        min: 1,
+        max: 2,
     },
     femurDiameter: {
         type: Number,
+        min: 1,
+        max: 2,
     },
     email: {
         type: String,
@@ -75,6 +85,7 @@ const UserSchema = Schema({
     //Tipos de roles de los usuarios
     rol: {
         type: String,
+        default: 'ADMIN_ROLE',
         required: true,
         emun: ['ADMIN_ROLE', 'USER_ROLE']
     },

@@ -14,10 +14,12 @@ const User = require('../../models/userModel');
 const usersPost = async (req = request, res = response) => {
 
     //Recuperamos todo lo que se introduce en el body
-    const { uid, name, surname, age, gender, height, weight, bmi, boneWeight, muscleWeight, residualWeight, fatPercentage, fatWeight, wristDiameter, femurDiameter, email, phone, password, imgProfile, imgHeader, rol } = req.body;
+    const { name, surname, age, gender, height, weight, wristDiameter, femurDiameter, email, phone, password } = req.body;
+
+    console.log(req.body)
 
     //Instanciamos nuestro modelo de usuario
-    const usuario = new User({ uid, name, surname, age, gender, height, weight, bmi, boneWeight, muscleWeight, residualWeight, fatPercentage, fatWeight, wristDiameter, femurDiameter, email, phone, password, imgProfile, imgHeader, rol });
+    const usuario = new User({ name, surname, age, gender, height, weight, bmi: 0, boneWeight: 0, muscleWeight: 0, residualWeight: 0, fatPercentage: 0, fatWeight: 0, wristDiameter, femurDiameter, email, phone, password });
 
     //Número de vueltas para hashear el password, por defecto es 10
     const salt = bcryptjs.genSaltSync();
@@ -28,10 +30,12 @@ const usersPost = async (req = request, res = response) => {
     //Guardamos en la base de datos los datos introducidos en el body
     await usuario.save();
 
-    res.json({
-        msg: 'Soy el endpoint post',
-        usuario
-    });
+    // res.json({
+    //     msg: 'Soy el endpoint post',
+    //     usuario
+    // });
+
+    res.redirect('/');
 }
 
 //Exportamos nuestras funciones como objetos para usarlo en el directorio Routes

@@ -15,7 +15,7 @@ const User = require('../../models/userModel');
 const usersPut = async (req = request, res = response) => {
 
     //Desestructuro el Id del usuario
-    const { id } = req.params;
+    const { id, password } = req.params;
 
     //Desestructuro lo que no quiero que se actualice en la base de datos
     const { _id, create_at, rol, state, google, ...params } = req.body;
