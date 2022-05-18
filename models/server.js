@@ -93,7 +93,7 @@ class Server {
         this.app.use(cors());
 
         //Nos permite ir al sitio web por defecto de la aplicación
-        this.app.use(express.static('views'));
+        this.app.use(express.static('public'));
 
         //Analiza las requests entrantes con cargas útiles codificadas en urlencoded y se basa en body-parser
         this.app.use(express.urlencoded({ extended: false }));
