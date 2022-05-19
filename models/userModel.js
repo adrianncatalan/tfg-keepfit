@@ -67,6 +67,7 @@ const UserSchema = Schema({
     phone: {
         type: Number,
         unique: true,
+        default: 0,
     },
     password: {
         type: String,
