@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "tailwind:css": "postcss public/styles/tailwind.css -o public/styles/main.css",
-    "tailwind:css2": "postcss views/styles/tailwind.css -o views/styles/main.css"
+    "tailwind:css": "postcss public/auth/styles/tailwind.css -o public/auth/styles/main.css",
+    "tailwind:css2": "postcss views/auth/styles/tailwind.css -o views/auth/styles/main.css"
   },
   "keywords": [],
   "author": "Adrián Catalán",

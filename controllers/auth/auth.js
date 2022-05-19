@@ -125,7 +125,7 @@ const login = async (req = request, res = response) => {
 const logout = async (req = request, res = response) => {
     req.session.destroy((err) => {
         if (err) throw err;
-        res.redirect('/');
+        res.redirect('/login');
     });
 }
 

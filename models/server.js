@@ -46,7 +46,7 @@ class Server {
             secret: 'SoyLaContraseñaDeLaSesión',
             resave: 'false',
             saveUninitialized: 'false',
-            cookie: { maxAge: 60000 },
+            cookie: { maxAge: 1200000 },
             store: store,
             // cookie: { secure: true }
         }))
@@ -63,12 +63,12 @@ class Server {
         //Cambiando el formato .hbs a formato.html
         // this.app.engine('html', require('hbs').__express);
 
-        //Solo para visualizar la ruta absoluta de mis partials
-        // console.log(path.join(__dirname));
-
+        // Solo para visualizar la ruta absoluta de mis partials
+        console.log(path.join(__dirname));
+        
         //Por alguna razón la ruta absoluta esta en models, se ha pasado el partial al directorio models
         hbs.registerPartials(path.join(__dirname, '/partials'));
-
+        
         //Hacemos la conexión a la base de datos
         this.connectionDB();
 
@@ -87,6 +87,14 @@ class Server {
 
     //Creamos el método de los middlewares
     middlewares() {
+
+        //Nos permite no guardar el cache, y hacemos que los usuarios cuando hagan logout no puedan volver atrás
+        this.app.use(function(req, res, next) {
+            res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+            res.setHeader('Pragma', 'no-cache');
+            res.setHeader('Expires', '0');
+            next();
+        });
 
         //Usando Cors para la protección seguridad del navegador 
         //Los Cors restringen las solicitudes HTTP de origen cruzado
@@ -114,9 +122,14 @@ class Server {
             if (req.session.isAuth) {
                 next()
             } else {
-                res.redirect('/')
+                res.redirect('/login');
             }
         }
+
+        //Rutas o urls a las views de la aplicación - login
+        this.app.get('/login', (req, res) => {
+            res.render('login');
+        });
 
         //Rutas o urls a las views de la aplicación - home
         this.app.get('/home', isAuth, (req, res) => {
