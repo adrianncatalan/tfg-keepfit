@@ -13,15 +13,19 @@ const UserSchema = Schema({
     },
     age: {
         type: Number,
+        default: 0,
     },
     gender: {
         type: String,
+        default: "None",
     },
     height: {
         type: Number,
+        default: 0,
     },
     weight: {
         type: Number,
+        default: 0,
     },
     bmi: {
         type: Number,
@@ -49,13 +53,11 @@ const UserSchema = Schema({
     },
     wristDiameter: {
         type: Number,
-        min: 1,
-        max: 2,
+        default: 0,
     },
     femurDiameter: {
         type: Number,
-        min: 1,
-        max: 2,
+        default: 0,
     },
     email: {
         type: String,
@@ -64,7 +66,6 @@ const UserSchema = Schema({
     },
     phone: {
         type: Number,
-        required: [true, 'El número de teléfono es obligatorio'],
         unique: true,
     },
     password: {
