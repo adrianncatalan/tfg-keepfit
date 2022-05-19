@@ -28,7 +28,7 @@ router.post('/register', [
     check('email').custom(isEmailValid),
     check('password', 'El password debe ser de mínimo 6 caracteres').isLength({ min: 6 }),
     // check('phone', 'El teléfono no es válido').isNumeric(),
-    // check('phone').custom(isPhoneValid),
+    check('phone').custom(isPhoneValid),
     check('rol').custom(isRolValid),
     validation
 ], usersPost);
