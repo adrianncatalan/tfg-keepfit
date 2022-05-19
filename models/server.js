@@ -64,7 +64,7 @@ class Server {
         // this.app.engine('html', require('hbs').__express);
 
         // Solo para visualizar la ruta absoluta de mis partials
-        console.log(path.join(__dirname));
+        // console.log(path.join(__dirname));
         
         //Por alguna razón la ruta absoluta esta en models, se ha pasado el partial al directorio models
         hbs.registerPartials(path.join(__dirname, '/partials'));
