@@ -17,10 +17,11 @@
                         </dt>
                         <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                             sm:col-span-2">
-                            <span class="flex-grow">{{name}}</span>
+                            <input
+                                class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                type="text" placeholder={{name}}>
                             <span class="ml-4 flex-shrink-0">
-                                <button id="edit-1" type="submit"
-                                    class="bg-white rounded-md font-medium
+                                <button id="edit-1" type="submit" class="bg-white rounded-md font-medium
                                     text-indigo-600 hover:text-indigo-500
                                     focus:outline-none focus:ring-2
                                     focus:ring-offset-2 focus:ring-indigo-500">
@@ -36,10 +37,11 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">{{surname}}</span>
+                        <input
+                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" placeholder={{surname}}>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-2" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-2" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
@@ -55,10 +57,11 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">{{age}} years old</span>
+                        <input
+                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" placeholder={{age}}>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
@@ -74,15 +77,20 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">{{gender}}</span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+
+                        <select name="gender" id="gender"
+                            class="flex-grow py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
+                            <option selected value="{{gender}}">{{gender}}</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+
+                        <button id="edit-3" type="button" class="ml-4 bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
-                            </button>
+                            Edit
+                        </button>
                         </span>
                     </dd>
                 </div>
@@ -93,10 +101,11 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">{{height}} m</span>
+                        <input
+                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" placeholder={{height}}>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
@@ -112,10 +121,11 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">{{weight}} kg</span>
+                        <input
+                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" placeholder={{weight}}>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
@@ -131,10 +141,11 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">{{wristDiameter}} cm</span>
+                        <input
+                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" placeholder={{wristDiameter}}>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
@@ -150,10 +161,11 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">{{femurDiameter}} cm</span>
+                        <input
+                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" placeholder={{femurDiameter}}>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
@@ -169,10 +181,11 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">{{email}}</span>
+                        <input
+                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" placeholder={{email}}>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
@@ -188,10 +201,11 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">{{phone}}</span>
+                        <input
+                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" placeholder={{phone}}>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
@@ -207,10 +221,11 @@
                     </dt>
                     <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">**********</span>
+                        <input
+                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" placeholder=**********>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
@@ -228,8 +243,7 @@
                         sm:col-span-2">
                         <span class="flex-grow">{{imgProfile}}</span>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
@@ -247,8 +261,7 @@
                         sm:col-span-2">
                         <span class="flex-grow">{{imgHeader}}</span>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button"
-                                class="bg-white rounded-md font-medium
+                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
