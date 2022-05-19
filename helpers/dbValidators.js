@@ -22,13 +22,13 @@ const isEmailValid = async (email = '') => {
 }
 
 //Con esta función valido el número de teléfono de los usuarios con mi base de datos
-const isPhoneValid = async (phone = '') => {
-    //Verificar si el teléfono esta registrado y mandamos un mensaje de error
-    const phoneExist = await User.findOne({ phone });
-    if (phoneExist) {
-        throw new Error(`El número de teléfono ${phone} ya se encuentra registrado en la base de datos`);
-    }
-}
+// const isPhoneValid = async (phone = '') => {
+//     //Verificar si el teléfono esta registrado y mandamos un mensaje de error
+//     const phoneExist = await User.findOne({ phone });
+//     if (phoneExist) {
+//         throw new Error(`El número de teléfono ${phone} ya se encuentra registrado en la base de datos`);
+//     }
+// }
 
 //Con esta función valido si existe el usuario en mi base de datos
 const existUserById = async (id) => {
@@ -43,6 +43,6 @@ const existUserById = async (id) => {
 module.exports = {
     isRolValid,
     isEmailValid,
-    isPhoneValid,
+    // isPhoneValid,
     existUserById,
 }
