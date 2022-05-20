@@ -1,9 +1,9 @@
 video {
-    position: fixed;
+    position: absolute;
     min-width: 100%;
     min-height: 100%;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-60%);
     z-index: -1;
 }
