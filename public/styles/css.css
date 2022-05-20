@@ -9,6 +9,12 @@ video {
     min-height: 100%;
 }
 
-.hola {
-    background-color: rgb(209, 221, 255);
+#btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    justify-self: center;
+    align-self:center;
+    align-content: center;
 }
