@@ -1,0 +1,197 @@
+<div class="hidden sm:block">
+    <nav class="relative z-0 rounded-lg shadow flex divide-x divide-gray-200" aria-label="Tabs">
+        <!-- Current: "text-gray-900", Default: "text-gray-500 hover:text-gray-700" -->
+        <a href="/myWorkouts"
+            class="text-indigo-600 hover:text-indigo-500 text-gray-900 rounded-l-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10"
+            aria-current="page">
+            <span>All</span>
+            <span aria-hidden="true" class="bg-indigo-500 absolute inset-x-0 bottom-0 h-0.5"></span>
+        </a>
+
+        <a href="/myWorkouts/biceps"
+            class="text-indigo-600 hover:text-indigo-500 text-gray-500 hover:text-gray-700 group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10">
+            <span>Biceps</span>
+            <span aria-hidden="true" class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+        </a>
+
+        <a href="/myWorkouts/chest"
+            class="text-indigo-600 hover:text-indigo-500 text-gray-500 hover:text-gray-700 group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10">
+            <span>Chest</span>
+            <span aria-hidden="true" class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+        </a>
+
+        <a href="/myWorkouts/dorsal"
+            class="text-indigo-600 hover:text-indigo-500 text-gray-500 hover:text-gray-700 rounded-r-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10">
+            <span>Dorsal</span>
+            <span aria-hidden="true" class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+        </a>
+
+        <a href="/myWorkouts/forearms"
+            class="text-indigo-600 hover:text-indigo-500 text-gray-500 hover:text-gray-700 rounded-r-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10">
+            <span>Forearms</span>
+            <span aria-hidden="true" class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+        </a>
+
+        <a href="/myWorkouts/legs"
+            class="text-indigo-600 hover:text-indigo-500 text-gray-500 hover:text-gray-700 rounded-r-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10">
+            <span>Legs</span>
+            <span aria-hidden="true" class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+        </a>
+
+        <a href="/myWorkouts/shoulders"
+            class="text-indigo-600 hover:text-indigo-500 text-gray-500 hover:text-gray-700 rounded-r-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10">
+            <span>Shoulders</span>
+            <span aria-hidden="true" class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+        </a>
+
+        <a href="/myWorkouts/triceps"
+            class="text-indigo-600 hover:text-indigo-500 text-gray-500 hover:text-gray-700 rounded-r-lg group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-4 text-sm font-medium text-center hover:bg-gray-50 focus:z-10">
+            <span>Triceps</span>
+            <span aria-hidden="true" class="bg-transparent absolute inset-x-0 bottom-0 h-0.5"></span>
+        </a>
+    </nav>
+</div>
+
+<!-- Mobile menu, show/hide based on menu state. -->
+<div class="sm:hidden" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1 flex justify-center text-center
+            flex-col">
+
+        <a href="/myWorkouts" class="
+                            hover:bg-indigo-700 text-gray-900
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">All Exercises</a>
+
+        <a href="/myWorkouts/biceps" class="
+                            hover:bg-indigo-700 text-gray-900
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Biceps</a>
+
+        <a href="/myWorkouts/chest" class="
+                            hover:bg-indigo-700 text-gray-900
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Chest</a>
+
+        <a href="/myWorkouts/dorsal" class="
+                            hover:bg-indigo-700 text-gray-900
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Dorsal</a>
+
+        <a href="/myWorkouts/forearms" class="
+                            hover:bg-indigo-700 text-gray-900
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Forearms</a>
+
+        <a href="/myWorkouts/legs" class="
+                            hover:bg-indigo-700 text-gray-900
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Legs</a>
+
+        <a href="/myWorkouts/shoulders" class="
+                            hover:bg-indigo-700 text-gray-900
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Shoulders</a>
+
+        <a href="/myWorkouts/triceps" class="
+                            hover:bg-indigo-700 text-gray-900
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Triceps</a>
+    </div>
+</div>
+
+
+
+
+{{!--
+<!-- This example requires Tailwind CSS v2.0+ -->
+<nav class="bg-gray-800">
+    <div class="w-1/2 mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="relative flex items-center justify-between">
+            <div class="flex-1 flex items-center justify-center sm:items-stretch
+                sm:justify-start">
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4 m-8">
+                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+
+                        <a href="/myWorkouts" class="text-gray-300 hover:bg-gray-700
+                            hover:text-white px-3 py-2 rounded-md text-sm
+                            font-medium">All</a>
+
+                        <a href="/myWorkouts/biceps" class="text-gray-300 hover:bg-gray-700
+                            hover:text-white px-3 py-2 rounded-md text-sm
+                            font-medium">Biceps</a>
+
+                        <a href="/myWorkouts/chest" class="text-gray-300
+                            hover:bg-gray-700
+                            hover:text-white px-3 py-2 rounded-md text-sm
+                            font-medium">Chest</a>
+
+                        <a href="/myWorkouts/dorsal" class="text-gray-300
+                            hover:bg-gray-700
+                            hover:text-white px-3 py-2 rounded-md text-sm
+                            font-medium">Dorsal</a>
+
+                        <a href="/myWorkouts/forearms" class="text-gray-300
+                            hover:bg-gray-700
+                            hover:text-white px-3 py-2 rounded-md text-sm
+                            font-medium">Forearms</a>
+
+                        <a href="/myWorkouts/legs" class="text-gray-300
+                            hover:bg-gray-700
+                            hover:text-white px-3 py-2 rounded-md text-sm
+                            font-medium">Legs</a>
+
+                        <a href="/myWorkouts/shoulders" class="text-gray-300
+                            hover:bg-gray-700
+                            hover:text-white px-3 py-2 rounded-md text-sm
+                            font-medium">Shoulders</a>
+                        <a href="/myWorkouts/triceps" class="text-gray-300
+                            hover:bg-gray-700
+                            hover:text-white px-3 py-2 rounded-md text-sm
+                            font-medium">Triceps</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 flex justify-center text-center
+            flex-col">
+            <div class="flex justify-center text-white">---------------------------------------</div>
+
+            <a href="/myWorkouts" class="text-gray-300 hover:bg-gray-700
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">All</a>
+
+            <a href="/myWorkouts/biceps" class="text-gray-300 hover:bg-gray-700
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Biceps</a>
+
+            <a href="/myWorkouts/chest" class="text-gray-300 hover:bg-gray-700
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Chest</a>
+
+            <a href="/myWorkouts/dorsal" class="text-gray-300 hover:bg-gray-700
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Dorsal</a>
+
+            <a href="/myWorkouts/forearms" class="text-gray-300 hover:bg-gray-700
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Forearms</a>
+
+            <a href="/myWorkouts/legs" class="text-gray-300 hover:bg-gray-700
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Legs</a>
+
+            <a href="/myWorkouts/shoulders" class="text-gray-300 hover:bg-gray-700
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Shoulders</a>
+
+            <a href="/myWorkouts/triceps" class="text-gray-300 hover:bg-gray-700
+                hover:text-white block
+                px-3 py-2 rounded-md text-base font-medium">Triceps</a>
+        </div>
+    </div>
+</nav> --}}

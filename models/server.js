@@ -68,10 +68,10 @@ class Server {
 
         // Solo para visualizar la ruta absoluta de mis partials
         // console.log(path.join(__dirname));
-        
+
         //Por alguna razón la ruta absoluta esta en models, se ha pasado el partial al directorio models
         hbs.registerPartials(path.join(__dirname, '/partials'));
-        
+
         //Hacemos la conexión a la base de datos
         this.connectionDB();
 
@@ -92,7 +92,7 @@ class Server {
     middlewares() {
 
         //Nos permite no guardar el cache, y hacemos que los usuarios cuando hagan logout no puedan volver atrás
-        this.app.use(function(req, res, next) {
+        this.app.use(function (req, res, next) {
             res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
             res.setHeader('Pragma', 'no-cache');
             res.setHeader('Expires', '0');
@@ -247,6 +247,35 @@ class Server {
             res.render('myWorkouts')
         });
 
+        this.app.get('/myWorkouts/biceps', isAuth, (req, res) => {
+            res.render('myWorkoutsBiceps')
+        });
+
+        this.app.get('/myWorkouts/chest', isAuth, (req, res) => {
+            res.render('myWorkoutsChest')
+        });
+
+        this.app.get('/myWorkouts/dorsal', isAuth, (req, res) => {
+            res.render('myWorkoutsDorsal')
+        });
+
+        this.app.get('/myWorkouts/forearms', isAuth, (req, res) => {
+            res.render('myWorkoutsForearms')
+        });
+
+        this.app.get('/myWorkouts/legs', isAuth, (req, res) => {
+            res.render('myWorkoutsLegs')
+        });
+
+        this.app.get('/myWorkouts/Shoulders', isAuth, (req, res) => {
+            res.render('myWorkoutsshoulders')
+        });
+
+
+        this.app.get('/myWorkouts/triceps', isAuth, (req, res) => {
+            res.render('myWorkoutsTriceps')
+        });
+
         //Rutas o urls a las views de la aplicación - settings
         this.app.get('/settings', isAuth, (req, res) => {
             res.render('settings', {
@@ -268,7 +297,7 @@ class Server {
         });
 
         //Rutas o urls a las views de la aplicación - updateSuccess
-        this.app.get('/updateSuccess', (req, res) => {
+        this.app.get('/updateSuccess', isAuth, (req, res) => {
             res.render('updateSuccess');
         });
 
