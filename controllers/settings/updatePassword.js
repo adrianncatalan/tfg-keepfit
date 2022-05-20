@@ -13,18 +13,18 @@ const bcryptjs = require('bcryptjs');
 const updatePassword = async (req = request, res = response) => {
 
     //Desestructuro el Id del usuario
-    const { id, password  } = req.params;
+    const { id } = req.params;
 
     //Validar contra base de datos
-    if (password) {
+    if (req.body) {
         //Número de vueltas para hashear el password, por defecto es 10
         const salt = bcryptjs.genSaltSync();
         //Hashear el password
-        params.password = bcryptjs.hashSync(password, salt);
+        req.body = bcryptjs.hashSync(password, salt);
     }
 
     //Actualizo al usuario por ID
-    await User.findByIdAndUpdate(id, params);
+    await User.findByIdAndUpdate(id, req.body);
 
     //Lo redireciono al settings, luego de actualizar
     res.redirect('/updateSuccess');
