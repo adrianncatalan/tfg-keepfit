@@ -19,7 +19,7 @@ const usersPost = async (req = request, res = response) => {
     console.log(req.body)
 
     //Instanciamos nuestro modelo de usuario
-    const usuario = new User({ _id, name, surname, age: 0, gender: "None", height: 0, weight: 0, bmi: 0, boneWeight: 0, muscleWeight: 0, residualWeight: 0, fatPercentage: 0, fatWeight: 0, wristDiameter: 0, femurDiameter: 0, email, phone, password });
+    const usuario = new User({ name, surname, age: 0, gender: "None", height: 0, weight: 0, bmi: 0, boneWeight: 0, muscleWeight: 0, residualWeight: 0, fatPercentage: 0, fatWeight: 0, wristDiameter: 0, femurDiameter: 0, email, phone, password });
 
     //Número de vueltas para hashear el password, por defecto es 10
     const salt = bcryptjs.genSaltSync();
@@ -35,7 +35,7 @@ const usersPost = async (req = request, res = response) => {
     //     usuario
     // });
 
-    res.redirect('/');
+    res.redirect('/login');
 }
 
 //Exportamos nuestras funciones como objetos para usarlo en el directorio Routes

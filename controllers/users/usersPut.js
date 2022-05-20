@@ -9,31 +9,34 @@ const bcryptjs = require('bcryptjs');
 //Importamos nuestro modelo de user
 const User = require('../../models/userModel');
 
+// const { bmiCal} = require('../calculations/calculations');
+
 //Lógica del endpoint PUT
 const usersPut = async (req = request, res = response) => {
 
     //Desestructuro el Id del usuario
-    const { id } = req.params;
-
-    const { name } = req.body;
-
-    // const { name } = req.body;
-
+    const { id, password } = req.params;
 
     //Desestructuro lo que no quiero que se actualice en la base de datos
-    const { _id, create_at, rol, state, google, surname, age, gender, height, weight, bmi, boneWeight, muscleWeight, residualWeight, fatPercentage, fatWeight, wristDiameter, femurDiameter: email, phone, password, ...params } = req.body;
+    const { _id, create_at, rol, state, google, ...params } = req.body;
 
-    //Actualizo al usuario por ID
-    await User.findByIdAndUpdate(id, req.body);
+    //Validar contra base de datos
+    if (password) {
+        //Número de vueltas para hashear el password, por defecto es 10
+        const salt = bcryptjs.genSaltSync();
+        //Hashear el password
+        params.password = bcryptjs.hashSync(password, salt);
+    }
 
-    //Lo redireciono al settings, luego de actualizar
-    res.redirect('/updateSuccess');
+    //Update IMC
+    // const bmiResult = bmiCal(weight, height);
+    // bmi = bmiResult.toFixed(2);
 
-    // Mensaje para el backend
-    // res.json({
-    //     msg: 'Soy el endpoint put',
-    //     usuario
-    // });
+    const usuario = await User.findByIdAndUpdate(id, params);
+    res.json({
+        msg: 'Soy el endpoint put',
+        usuario
+    });
 }
 
 //Exportamos nuestras funciones como objetos para usarlo en el directorio Routes

@@ -6,6 +6,17 @@ const usersPatch = require('./users/usersPatch');
 const usersDelete = require('./users/usersDelete');
 const calculations = require('./calculations/calculations');
 const updateName = require('./settings/updateName');
+const updateSurname = require('./settings/updateSurname');
+const updateAge = require('./settings/updateAge');
+const updateGender = require('./settings/updateGender');
+const updateHeight = require('./settings/updateHeight');
+const updateWeight = require('./settings/updateWeight');
+const updateWrist = require('./settings/updateWrist');
+const updateFemur = require('./settings/updateFemur');
+const updateEmail = require('./settings/updateEmail');
+const updatePhone = require('./settings/updatePhone');
+const updatePassword = require('./settings/updatePassword');
+
 
 //Exporto mis controladores
 module.exports = {
@@ -16,4 +27,15 @@ module.exports = {
     ...usersDelete,
     ...calculations,
     ...updateName,
+    ...updateSurname,
+    ...updateAge,
+    ...updateGender,
+    ...updateAge,
+    ...updateHeight,
+    ...updateWeight,
+    ...updateWrist,
+    ...updateFemur,
+    ...updateEmail,
+    ...updatePhone,
+    ...updatePassword,
 }

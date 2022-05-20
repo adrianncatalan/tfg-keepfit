@@ -9,10 +9,10 @@ const { check } = require('express-validator')
 const { isRolValid, isEmailValid, isPhoneValid, existUserById } = require('../helpers/dbValidators')
 
 //Los bloques de código son exportados a través del index del directorio controllers
-const { usersGet, usersPost, usersPut, usersPatch, usersDelete, updateName } = require('../controllers');
+const { updateName, updateSurname, updateAge, updateGender, updateHeight, updateWeight, updateWrist, updateFemur, updateEmail, updatePhone, updatePassword } = require('../controllers');
 
 //Los bloques de código son exportados a través del index del directorio middleware
-const { validationJWT, validationRoles, validation } = require('../middleware');
+const { validation } = require('../middleware');
 
 //Creamos una constante que guarde las propiedades Router
 const router = Router();
@@ -24,7 +24,7 @@ router.post('/:id', [
     check('id').custom(existUserById),
     check('rol').custom(isRolValid),
     validation
-], updateName);
+], updateName, updateSurname, updateAge, updateGender, updateHeight, updateWeight, updateWrist, updateFemur, updateEmail, updatePhone, updatePassword);
 
 //Exportamos el método Router
 module.exports = router;

@@ -17,66 +17,85 @@
                         </dt>
                         <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                             sm:col-span-2">
-                            <input
-                                class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                type="text" name="name" id="name" placeholder={{name}}>
-                            <span class="ml-4 flex-shrink-0">
-                                <button id="save" class="bg-white rounded-md font-medium
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">{{name}}</p>
+                        </dt>
+                        <input
+                            class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" name="name" id="name" maxlength="20" placeholder="Update your name">
+
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
                                     text-indigo-600 hover:text-indigo-500
                                     focus:outline-none focus:ring-2
                                     focus:ring-offset-2 focus:ring-indigo-500">
-                                    Save
-                                </button>
-                            </span>
+                                Save
+                            </button>
+                        </span>
                         </dd>
                     </div>
                 </form>
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Surname
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
+
+                <form action="/settings/{{_id}}" method="POST">
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Surname
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                            sm:col-span-2">
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">{{surname}}</p>
+                        </dt>
                         <input
-                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            type="text" placeholder={{surname}}>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-2" type="button" class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                            class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" name="surname" id="surname" maxlength="20" placeholder="Update your surname">
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                Save
                             </button>
                         </span>
-                    </dd>
-                </div>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Age
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
+                <form action="/settings/{{_id}}" method="POST">
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Age
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                            sm:col-span-2">
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">{{age}} years old</p>
+                        </dt>
                         <input
-                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            type="text" placeholder={{age}}>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                            class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="number" name="age" id="age" minlength="1" maxlength="3" placeholder="Update your age">
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                Save
                             </button>
                         </span>
-                    </dd>
-                </div>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Gender
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                <form action="/settings/{{_id}}" method="POST">
+                    <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Gender
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">{{gender}}</p>
+                        </dt>
 
                         <select name="gender" id="gender"
                             class="flex-grow py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md">
@@ -85,155 +104,193 @@
                             <option value="Female">Female</option>
                         </select>
 
-                        <button id="edit-3" type="button" class="ml-4 bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                            Edit
-                        </button>
-                        </span>
-                    </dd>
-                </div>
-
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Height
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
-                        <input
-                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            type="text" placeholder={{height}}>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                Save
                             </button>
                         </span>
-                    </dd>
-                </div>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Weight
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
+                <form action="/settings/{{_id}}" method="POST">
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Height
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                            sm:col-span-2">
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">{{height}} cm</p>
+                        </dt>
                         <input
-                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            type="text" placeholder={{weight}}>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                            class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="number" name="height" id="height" minlength="1" maxlength="3" placeholder="Update your height (Enter integer values)">
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                Save
                             </button>
                         </span>
-                    </dd>
-                </div>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Wrist diameter
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
+                <form action="/settings/{{_id}}" method="POST">
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Weight
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                            sm:col-span-2">
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">{{weight}} kg</p>
+                        </dt>
                         <input
-                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            type="text" placeholder={{wristDiameter}}>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                            class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="number" name="weight" id="weight" minlength="1" maxlength="3" placeholder="Update your weight (Enter integer values)">
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                Save
                             </button>
                         </span>
-                    </dd>
-                </div>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Femur diameter
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
+                <form action="/settings/{{_id}}" method="POST">
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Wrist diameter
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                            sm:col-span-2">
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">{{wristDiameter}} cm</p>
+                        </dt>
                         <input
-                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            type="text" placeholder={{femurDiameter}}>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                            class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="number" name="wristDiameter" id="wristDiameter" minlength="1" maxlength="3" placeholder="Update your wrist diameter (Enter integer values)">
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                Save
                             </button>
                         </span>
-                    </dd>
-                </div>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Email
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
+                <form action="/settings/{{_id}}" method="POST">
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Femur diameter
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                            sm:col-span-2">
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">{{femurDiameter}} cm</p>
+                        </dt>
                         <input
-                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            type="text" placeholder={{email}}>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                            class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="number" name="femurDiameter" id="femurDiameter" minlength="1" maxlength="3" placeholder="Update your femur diameter (Enter integer values)">
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                Save
                             </button>
                         </span>
-                    </dd>
-                </div>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Phone
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
+                <form action="/settings/{{_id}}" method="POST">
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Email
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                            sm:col-span-2">
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">{{email}}</p>
+                        </dt>
                         <input
-                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            type="text" placeholder={{phone}}>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                            class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="email" name="email" id="email" maxlength="50" placeholder="Update your email">
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                Save
                             </button>
                         </span>
-                    </dd>
-                </div>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Password
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
+                <form action="/settings/{{_id}}" method="POST">
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Phone
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                            sm:col-span-2">
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">{{phone}}</p>
+                        </dt>
                         <input
-                            class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            type="text" placeholder=**********>
-                        <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                            class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="number" name="phone" id="phone" maxlength="15" placeholder="Update your phone">
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                Save
                             </button>
                         </span>
-                    </dd>
-                </div>
+                        </dd>
+                    </div>
+                </form>
+
+                <form action="/settings/{{_id}}" method="POST">
+                    <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Password
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                            sm:col-span-2">
+                        <dt class="text-xl font-medium text-gray-500">
+                            <p class="flex-grow font-bold">**********</p>
+                        </dt>
+                        <input
+                            class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="text" name="password" id="password" maxlength="20" minlength="6" placeholder="Update your password">
+                        <span class="flex justify-center ml-4 flex-shrink-0">
+                            <button id="save" class="bg-white rounded-md font-medium
+                                    text-indigo-600 hover:text-indigo-500
+                                    focus:outline-none focus:ring-2
+                                    focus:ring-offset-2 focus:ring-indigo-500">
+                                Save
+                            </button>
+                        </span>
+                        </dd>
+                    </div>
+                </form>
+
 
                 <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
                     <dt class="text-sm font-medium text-gray-500">
@@ -243,11 +300,11 @@
                         sm:col-span-2">
                         <span class="flex-grow">{{imgProfile}}</span>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
+                            <button id="save" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                                Save
                             </button>
                         </span>
                     </dd>
@@ -261,16 +318,15 @@
                         sm:col-span-2">
                         <span class="flex-grow">{{imgHeader}}</span>
                         <span class="ml-4 flex-shrink-0">
-                            <button id="edit-3" type="button" class="bg-white rounded-md font-medium
+                            <button id="save" class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
-                                Edit
+                                Save
                             </button>
                         </span>
                     </dd>
                 </div>
-
             </dl>
         </div>
     </div>
