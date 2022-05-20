@@ -35,7 +35,7 @@ router.post('/register', [
 
 //Endpoint PUT
 //Colocamos un ID para poder saber que tipo de usuario es
-router.put('/:id', [
+router.post('/settings/:id', [
     check('id', 'No es un Id válido').isMongoId(),
     check('id').custom(existUserById),
     check('rol').custom(isRolValid),

@@ -57,6 +57,9 @@ class Server {
         //Me creo mi ruta de autenticación
         this.authPath = '/auth';
 
+        //Me creo mi ruta de settings - update
+        this.settingsPath = '/settings';
+
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
         this.app.set('view engine', 'hbs'); //Si colocamos html, podemos cambiar el formato
 
@@ -136,6 +139,7 @@ class Server {
             // console.log(req.session)
             //Si el login es exitoso, el usuario va al home
             res.render('home', {
+                _id: req.session.data._id,
                 name: req.session.data.name,
                 surname: req.session.data.surname,
                 height: req.session.data.height,
@@ -245,6 +249,7 @@ class Server {
         //Rutas o urls a las views de la aplicación - settings
         this.app.get('/settings', isAuth, (req, res) => {
             res.render('settings', {
+                _id: req.session.data._id,
                 name: req.session.data.name,
                 surname: req.session.data.surname,
                 age: req.session.data.age,
@@ -259,6 +264,11 @@ class Server {
                 imgProfile: req.session.data.imgProfile,
                 imgHeader: req.session.data.imgHeader,
             });
+        });
+
+        //Rutas o urls a las views de la aplicación - updateSuccess
+        this.app.get('/updateSuccess', (req, res) => {
+            res.render('updateSuccess');
         });
 
         //Rutas o urls a las views de la aplicación - forgotPassword

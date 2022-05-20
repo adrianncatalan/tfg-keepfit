@@ -10,7 +10,7 @@
         </div>
         <div class="mt-5 border-t border-gray-200">
             <dl class="divide-y divide-gray-200">
-                <form action="/auth/login" method="GET">
+                <form action="/users/settings/{{_id}}" method="POST">
                     <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                         <dt class="text-sm font-medium text-gray-500">
                             Name
@@ -19,13 +19,13 @@
                             sm:col-span-2">
                             <input
                                 class="flex-grow appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                type="text" placeholder={{name}}>
+                                type="text" name="name" id="name" placeholder={{name}}>
                             <span class="ml-4 flex-shrink-0">
-                                <button id="edit-1" type="submit" class="bg-white rounded-md font-medium
+                                <button id="save" class="bg-white rounded-md font-medium
                                     text-indigo-600 hover:text-indigo-500
                                     focus:outline-none focus:ring-2
                                     focus:ring-offset-2 focus:ring-indigo-500">
-                                    Edit
+                                    Save
                                 </button>
                             </span>
                         </dd>
