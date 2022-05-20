@@ -5,6 +5,7 @@ const usersPut = require('./users/usersPut');
 const usersPatch = require('./users/usersPatch');
 const usersDelete = require('./users/usersDelete');
 const calculations = require('./calculations/calculations');
+const updateName = require('./settings/updateName');
 
 //Exporto mis controladores
 module.exports = {
@@ -14,4 +15,5 @@ module.exports = {
     ...usersPatch,
     ...usersDelete,
     ...calculations,
+    ...updateName,
 }

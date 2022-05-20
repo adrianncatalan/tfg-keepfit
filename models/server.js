@@ -120,6 +120,7 @@ class Server {
         //Dependiendo de la petición que se haga, get, post etc... se ejecutará el bloque de código correspondiente
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/users'));
+        this.app.use(this.settingsPath, require('../routes/settings'));
 
         const isAuth = (req, res, next) => {
             if (req.session.isAuth) {
