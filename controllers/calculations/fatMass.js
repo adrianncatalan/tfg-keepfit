@@ -24,7 +24,7 @@ const fatMass = async (req = request, res = response) => {
         console.log(req.body.fatWeight)
     ) : (
         //Tener en cuenta que dividimos la altura entre 100 para que nos arroje un resultado en decimales, porque los valores están todos en enteros
-        req.body.fatWeight = fatWeightCal(weight, fatPercentage),
+        req.body.fatWeight = fatWeightCal(weight, fatPercentage).toFixed(2),
         console.log(req.body.fatWeight)
     )
 

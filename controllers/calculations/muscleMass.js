@@ -30,14 +30,15 @@ const muscleMass = async (req = request, res = response) => {
         req.body.muscleWeight = 0
     ) : (
         //Ejecutamos la función por haber pasado la verificación
-        req.body.muscleWeight = muscleWeightCal(weight, fatWeight, boneWeight, residualWeight).toFixed(2)
+        req.body.muscleWeight = muscleWeightCal(weight, fatWeight, boneWeight, residualWeight).toFixed(2),
+        console.log(req.body.muscleWeight)
     )
 
     if (req.body.muscleWeight <= 0) {
         req.body.muscleWeight = 0;
     }
 
-    console.log(req.body.muscleWeight)
+    
 
     //Actualizo al usuario por ID
     await User.findByIdAndUpdate(id, req.body);
