@@ -248,32 +248,32 @@ class Server {
         });
 
         this.app.get('/myWorkouts/biceps', isAuth, (req, res) => {
-            res.render('myWorkoutsBiceps')
+            res.render('./myWorkouts/myWorkoutsBiceps')
         });
 
         this.app.get('/myWorkouts/chest', isAuth, (req, res) => {
-            res.render('myWorkoutsChest')
+            res.render('./myWorkouts/myWorkoutsChest')
         });
 
         this.app.get('/myWorkouts/dorsal', isAuth, (req, res) => {
-            res.render('myWorkoutsDorsal')
+            res.render('./myWorkouts/myWorkoutsDorsal')
         });
 
         this.app.get('/myWorkouts/forearms', isAuth, (req, res) => {
-            res.render('myWorkoutsForearms')
+            res.render('./myWorkouts/myWorkoutsForearms')
         });
 
         this.app.get('/myWorkouts/legs', isAuth, (req, res) => {
-            res.render('myWorkoutsLegs')
+            res.render('./myWorkouts/myWorkoutsLegs')
         });
 
         this.app.get('/myWorkouts/Shoulders', isAuth, (req, res) => {
-            res.render('myWorkoutsshoulders')
+            res.render('./myWorkouts/myWorkoutsshoulders')
         });
 
 
         this.app.get('/myWorkouts/triceps', isAuth, (req, res) => {
-            res.render('myWorkoutsTriceps')
+            res.render('./myWorkouts/myWorkoutsTriceps')
         });
 
         //Rutas o urls a las views de la aplicación - settings
