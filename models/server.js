@@ -294,8 +294,8 @@ class Server {
             res.render('./myWorkouts/myWorkoutsLegs')
         });
 
-        this.app.get('/myWorkouts/Shoulders', isAuth, (req, res) => {
-            res.render('./myWorkouts/myWorkoutsshoulders')
+        this.app.get('/myWorkouts/shoulders', isAuth, (req, res) => {
+            res.render('./myWorkouts/myWorkoutsShoulders')
         });
 
         this.app.get('/myWorkouts/triceps', isAuth, (req, res) => {
