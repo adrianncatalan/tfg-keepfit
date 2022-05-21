@@ -13,17 +13,20 @@ const User = require('../../models/userModel');
 const bone = async (req = request, res = response) => {
 
     //Desestructuro el Id del usuario
-    const { id, height, wristDiameter, femurDiameter } = req.params;
+    const { id, weight } = req.params;
 
-    console.log(id)
-    console.log(height)
-    console.log(wristDiameter)
-    console.log(femurDiameter)
+    console.log('Oseous mass')
+    console.log(weight)
 
-    //Tener en cuenta que dividimos la altura entre 100 para que nos arroje un resultado en decimales, porque los valores están todos en enteros
-    req.body.boneWeight = boneWeightCal(height, wristDiameter, femurDiameter).toFixed(2);
+    weight <= 0 ? (
+        req.body.boneWeight = 0
+    ) : (
+        //Tener en cuenta que dividimos la altura entre 100 para que nos arroje un resultado en decimales, porque los valores están todos en enteros
+        req.body.boneWeight = boneWeightCal(weight).toFixed(2)
+    )
 
     console.log(req.body.boneWeight)
+
     //Actualizo al usuario por ID
     await User.findByIdAndUpdate(id, req.body);
 

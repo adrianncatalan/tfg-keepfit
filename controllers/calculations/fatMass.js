@@ -13,10 +13,20 @@ const User = require('../../models/userModel');
 const fatMass = async (req = request, res = response) => {
 
     //Desestructuro el Id del usuario
-    const { id, weight, fatPercentage  } = req.params;
+    const { id, weight, fatPercentage } = req.params;
 
-    //Tener en cuenta que dividimos la altura entre 100 para que nos arroje un resultado en decimales, porque los valores están todos en enteros
-    req.body.fatWeight = fatWeightCal(weight, fatPercentage)
+    console.log(weight)
+    console.log(fatPercentage)
+
+    //Evaluando condiciones con operador ternario
+    weight <= 0 || fatPercentage <= 0 ? (
+        req.body.fatWeight = 0,
+        console.log(req.body.fatWeight)
+    ) : (
+        //Tener en cuenta que dividimos la altura entre 100 para que nos arroje un resultado en decimales, porque los valores están todos en enteros
+        req.body.fatWeight = fatWeightCal(weight, fatPercentage),
+        console.log(req.body.fatWeight)
+    )
 
     //Actualizo al usuario por ID
     await User.findByIdAndUpdate(id, req.body);

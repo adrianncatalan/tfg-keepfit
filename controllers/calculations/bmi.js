@@ -19,9 +19,13 @@ const bmi = async (req = request, res = response) => {
     console.log(weight)
     console.log(height)
 
-    //Tener en cuenta que dividimos la altura entre 100 para que nos arroje un resultado en decimales, porque los valores están todos en enteros
-    req.body.bmi = bmiCal(weight, height).toFixed(2);
-
+    weight <= 0 || height <= 0 ? (
+        req.body.bmi = 0
+    ) : (
+        //Tener en cuenta que dividimos la altura entre 100 para que nos arroje un resultado en decimales, porque los valores están todos en enteros
+        req.body.bmi = bmiCal(weight, height).toFixed(2)
+    )
+    
     console.log(req.body.bmi)
 
     //Actualizo al usuario por ID

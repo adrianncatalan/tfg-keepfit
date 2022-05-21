@@ -15,14 +15,27 @@ const muscleMass = async (req = request, res = response) => {
     //Desestructuro el Id del usuario
     const { id, weight, fatWeight, boneWeight, residualWeight } = req.params;
 
-    console.log(id)
+    // Number(weight)
+    // Number(fatWeight)
+    // Number(boneWeight)
+    // Number(residualWeight)
+    // weight == 0 || fatWeight == 0 || boneWeight == 0 || residualWeight == 0 ? 
+    console.log('Muscle mass')
     console.log(weight)
     console.log(fatWeight)
     console.log(boneWeight)
     console.log(residualWeight)
 
-    //Ejecutamos la función
-    req.body.muscleWeight = muscleWeightCal(weight, fatWeight, boneWeight, residualWeight).toFixed(2);
+    weight <= 0 || fatWeight <= 0 || boneWeight <= 0 || residualWeight <= 0 ? (
+        req.body.muscleWeight = 0
+    ) : (
+        //Ejecutamos la función por haber pasado la verificación
+        req.body.muscleWeight = muscleWeightCal(weight, fatWeight, boneWeight, residualWeight).toFixed(2)
+    )
+
+    if (req.body.muscleWeight <= 0) {
+        req.body.muscleWeight = 0;
+    }
 
     console.log(req.body.muscleWeight)
 

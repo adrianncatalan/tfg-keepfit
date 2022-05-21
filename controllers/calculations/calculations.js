@@ -2,12 +2,14 @@
 const bmiCal = (weight, height) => (weight / (Math.pow((height / 100), 2)));
 
 //Función para calcular el bone weight -Altura esta dividio entre 100 para que nos arroje un decimal
-const boneWeightCal = (height, wristDiameter, femurDiameter) => (3.02 * ((Math.pow((Math.pow((height/100), 2)) * (wristDiameter * femurDiameter)) * 400), 0.712));
+const boneWeightCal = (weight) => weight * 0.15;
+
+// (3.02 * ((Math.pow((Math.pow((height/100), 2)) * (wristDiameter * femurDiameter)) * 400), 0.712));
 
 // 3.02 * (Math.pow(height / 100), 2) * (Math.pow(wristDiameter * femurDiameter * 400),0.712);
 
 //Función para calcular el muscle weight
-const muscleWeightCal = (weight, fatWeight, boneWeight, residualWeight) => (weight - (fatWeight - boneWeight - residualWeight));
+const muscleWeightCal = (weight, fatWeight, boneWeight, residualWeight) => (weight - fatWeight - boneWeight - residualWeight);
 
 //Función para el residual weight hombres
 const residualWeightMenCal = (weight) => ((weight * 24.1) / 100);

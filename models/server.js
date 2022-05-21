@@ -168,6 +168,8 @@ class Server {
                 _id: req.session.data._id,
                 name: req.session.data.name,
                 surname: req.session.data.surname,
+                age: req.session.data.age,
+                gender: req.session.data.gender,
                 height: req.session.data.height,
                 weight: req.session.data.weight,
                 wristDiameter: req.session.data.wristDiameter,

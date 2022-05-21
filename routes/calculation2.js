@@ -19,7 +19,7 @@ const router = Router();
 
 //Endpoint POST
 //Colocamos un ID para poder saber que tipo de usuario es
-router.post('/:id/:weight/:height/:wristDiameter/:femurDiameter/', [
+router.post('/:id/:weight/', [
     check('id', 'No es un Id válido').isMongoId(),
     check('id').custom(existUserById),
     check('rol').custom(isRolValid),

@@ -35,7 +35,7 @@
                     </div>
                 </form>
 
-                <form action="/calculation2/{{_id}}/{{weight}}/{{height}}/{{wristDiameter}}/{{femurDiameter}}/"
+                <form action="/calculation2/{{_id}}/{{weight}}/"
                     method="POST">
                     <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
                         <dt class="text-sm font-medium text-gray-500">
@@ -46,7 +46,7 @@
                             <span class="flex-grow"><input
                                     class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     type="text" readonly name="boneWeight" id="boneWeight"
-                                    value="{{boneWeight}}"></span>
+                                    value="{{boneWeight}} kg"></span>
                             <span class="ml-4 flex-shrink-0">
                                 <button class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
@@ -139,7 +139,7 @@
                             <span class="flex-grow"><input
                                     class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     type="text" readonly name="fatPercentage" id="fatPercentage"
-                                    value="{{fatPercentage}} kg"></span>
+                                    value="{{fatPercentage}} %"></span>
                             <span class="ml-4 flex-shrink-0">
                                 <button class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500

@@ -15,11 +15,28 @@ const fatPercentage = async (req = request, res = response) => {
     //Desestructuro el Id del usuario
     const { id, bmi, age, gender } = req.params;
 
-    gender === 'Male' ? (
-        req.body.fatPercentage = fatPercentageMenCal(bmi, age).toFixed(2)
+    console.log('Fat percentage')
+    console.log(bmi)
+    console.log(age)
+    console.log(gender)
+
+    //Evaluando condiciones con operador ternario
+    bmi <= 0 || age <= 0 ? (
+        req.body.fatPercentage = 0,
+        console.log(req.body.fatPercentage)
     ) : (
-        req.body.fatPercentage = fatPercentageWomenCal(bmi, age).toFixed(2)
-    );
+        gender === 'Male' ? (
+            req.body.fatPercentage = fatPercentageMenCal(bmi, age).toFixed(2),
+            console.log(req.body.fatPercentage)
+        ) : (
+            req.body.fatPercentage = fatPercentageWomenCal(bmi, age).toFixed(2),
+            console.log(req.body.fatPercentage)
+        )
+    )
+
+    if (gender == 'None') {
+        req.body.fatPercentage = 0;
+    }
 
     //Actualizo al usuario por ID
     await User.findByIdAndUpdate(id, req.body);

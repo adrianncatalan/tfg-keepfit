@@ -15,11 +15,26 @@ const residualMass = async (req = request, res = response) => {
     //Desestructuro el Id del usuario
     const { id, weight, gender } = req.params;
 
-    gender === 'Male' ? (
-        req.body.residualWeight = residualWeightMenCal(weight).toFixed(2)
+    console.log('Gender')
+    console.log(weight)
+    console.log(gender)
+
+    //Evaluando condiciones con operador ternario
+    weight <= 0 ? (
+        req.body.residualWeight = 0
     ) : (
-        req.body.residualWeight = residualWeightWomenCal(weight).toFixed(2)
-    );
+        gender === 'Male' ? (
+            req.body.residualWeight = residualWeightMenCal(weight).toFixed(2),
+            console.log(req.body.residualWeight)
+        ) : (
+            req.body.residualWeight = residualWeightWomenCal(weight).toFixed(2),
+            console.log(req.body.residualWeight)
+        )
+    )
+
+    if (gender == 'None') {
+        req.body.residualWeight = 0;
+    }
 
     //Actualizo al usuario por ID
     await User.findByIdAndUpdate(id, req.body);
