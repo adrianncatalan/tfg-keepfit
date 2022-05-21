@@ -16,7 +16,12 @@ const updateFemur = require('./settings/updateFemur');
 const updateEmail = require('./settings/updateEmail');
 const updatePhone = require('./settings/updatePhone');
 const updatePassword = require('./settings/updatePassword');
-
+const bmi = require('./calculations/bmi');
+const bone = require('./calculations/bone');
+const muscleMass = require('./calculations/muscleMass');
+const residualMass = require('./calculations/residualMass');
+const fatMass = require('./calculations/fatMass');
+const fatPercentage = require('./calculations/fatPercentage');
 
 //Exporto mis controladores
 module.exports = {
@@ -38,4 +43,10 @@ module.exports = {
     ...updateEmail,
     ...updatePhone,
     ...updatePassword,
+    ...bmi,
+    ...bone,
+    ...muscleMass,
+    ...residualMass,
+    ...fatMass,
+    ...fatPercentage
 }

@@ -12,124 +12,145 @@
         </div>
         <div class="mt-5 border-t border-gray-200">
             <dl class="divide-y divide-gray-200">
+                <form action="/calculation/{{_id}}/{{weight}}/{{height}}/" method="POST">
+                    <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Body mass index
+                        </dt>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Body mass index
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">{{bmi}}</span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button type="button"
-                                class="bg-white rounded-md font-medium
+                            <span class="flex-grow"><input
+                                    class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text" readonly name="bmi" id="bmi" value="{{bmi}}"></span>
+                            <span class="ml-4 flex-shrink-0">
+                                <button class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
-                                Calculate
-                            </button>
-                        </span>
-                    </dd>
-                </div>
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Weight bone
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
-                        <span class="flex-grow">{{boneWeight}} %</span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button type="button"
-                                class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Calculate
-                            </button>
-                        </span>
-                    </dd>
-                </div>
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Muscle weight
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
-                        sm:col-span-2">
-                        <span class="flex-grow">{{muscleWeight}}</span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button type="button"
-                                class="bg-white rounded-md font-medium
-                                text-indigo-600 hover:text-indigo-500
-                                focus:outline-none focus:ring-2
-                                focus:ring-offset-2 focus:ring-indigo-500">
-                                Calculate
-                            </button>
-                        </span>
-                    </dd>
-                </div>
+                                    Calculate
+                                </button>
+                            </span>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Residual weight
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                <form action="/calculation2/{{_id}}/{{weight}}/{{height}}/{{wristDiameter}}/{{femurDiameter}}/"
+                    method="POST">
+                    <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Oseous mass
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">
-                            {{residualWeight}}
-                        </span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button type="button"
-                                class="bg-white rounded-md font-medium
+                            <span class="flex-grow"><input
+                                    class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text" readonly name="boneWeight" id="boneWeight"
+                                    value="{{boneWeight}}"></span>
+                            <span class="ml-4 flex-shrink-0">
+                                <button class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
-                                Calculate
-                            </button>
-                        </span>
-                    </dd>
-                </div>
+                                    Calculate
+                                </button>
+                            </span>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Fat weight
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                <form action="/calculation3/{{_id}}/{{weight}}/{{fatWeight}}/{{boneWeight}}/{{residualWeight}}/"
+                    method="POST">
+                    <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Muscle mass
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">
-                            {{fatWeight}}
-                        </span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button type="button"
-                                class="bg-white rounded-md font-medium
+                            <span class="flex-grow"><input
+                                    class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text" readonly name="muscleWeight" id="muscleWeight"
+                                    value="{{muscleWeight}} kg"></span>
+                            <span class="ml-4 flex-shrink-0">
+                                <button class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
-                                Calculate
-                            </button>
-                        </span>
-                    </dd>
-                </div>
+                                    Calculate
+                                </button>
+                            </span>
+                        </dd>
+                    </div>
+                </form>
 
-                <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Fat percentage
-                    </dt>
-                    <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                <form action="/calculation4/{{_id}}/{{weight}}/{{gender}}" method="POST">
+                    <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Residual mass
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
                         sm:col-span-2">
-                        <span class="flex-grow">
-                            {{fatPercentage}}
-                        </span>
-                        <span class="ml-4 flex-shrink-0">
-                            <button type="button"
-                                class="bg-white rounded-md font-medium
+                            <span class="flex-grow"><input
+                                    class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text" readonly name="residualWeight" id="residualWeight"
+                                    value="{{residualWeight}} kg"></span>
+                            <span class="ml-4 flex-shrink-0">
+                                <button class="bg-white rounded-md font-medium
                                 text-indigo-600 hover:text-indigo-500
                                 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-indigo-500">
-                                Calculate
-                            </button>
-                        </span>
-                    </dd>
-                </div>
+                                    Calculate
+                                </button>
+                            </span>
+                        </dd>
+                    </div>
+                </form>
+
+                <form action="/calculation5/{{_id}}/{{weight}}/{{fatPercentage}}/" method="POST">
+                    <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Fat mass
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
+                            <span class="flex-grow"><input
+                                    class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text" readonly name="fatWeight" id="fatWeight"
+                                    value="{{fatWeight}} kg"></span>
+                            <span class="ml-4 flex-shrink-0">
+                                <button class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
+                                    Calculate
+                                </button>
+                            </span>
+                        </dd>
+                    </div>
+                </form>
+
+                <form action="/calculation6/{{_id}}/{{bmi}}/{{age}}/{{gender}}/" method="POST">
+                    <div class="py-4 sm:grid sm:py-5 sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Fat percentage
+                        </dt>
+                        <dd class="mt-1 flex text-sm text-gray-900 sm:mt-0
+                        sm:col-span-2">
+                            <span class="flex-grow"><input
+                                    class="flex-shrink appearance-none w-8 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text" readonly name="fatPercentage" id="fatPercentage"
+                                    value="{{fatPercentage}} kg"></span>
+                            <span class="ml-4 flex-shrink-0">
+                                <button class="bg-white rounded-md font-medium
+                                text-indigo-600 hover:text-indigo-500
+                                focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-indigo-500">
+                                    Calculate
+                                </button>
+                            </span>
+                        </dd>
+                    </div>
+                </form>
             </dl>
         </div>
     </div>

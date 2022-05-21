@@ -59,6 +59,24 @@ class Server {
 
         //Me creo mi ruta de settings - update
         this.settingsPath = '/settings';
+        
+        //Me creo mi ruta de calculation - update
+        this.calculationPath = '/calculation';
+
+        //Me creo mi ruta de calculation - update
+        this.calculation2Path = '/calculation2';
+
+        //Me creo mi ruta de calculation - update
+        this.calculation3Path = '/calculation3';
+
+        //Me creo mi ruta de calculation - update
+        this.calculation4Path = '/calculation4';
+
+        //Me creo mi ruta de calculation - update
+        this.calculation5Path = '/calculation5';
+
+        //Me creo mi ruta de calculation - update
+        this.calculation6Path = '/calculation6';
 
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
         this.app.set('view engine', 'hbs'); //Si colocamos html, podemos cambiar el formato
@@ -121,6 +139,13 @@ class Server {
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/users'));
         this.app.use(this.settingsPath, require('../routes/settings'));
+        this.app.use(this.calculationPath, require('../routes/calculation'));
+        this.app.use(this.calculation2Path, require('../routes/calculation2'));
+        this.app.use(this.calculation3Path, require('../routes/calculation3'));
+        this.app.use(this.calculation4Path, require('../routes/calculation4'));
+        this.app.use(this.calculation5Path, require('../routes/calculation5'));
+        this.app.use(this.calculation6Path, require('../routes/calculation6'));
+        
 
         const isAuth = (req, res, next) => {
             if (req.session.isAuth) {
@@ -145,6 +170,8 @@ class Server {
                 surname: req.session.data.surname,
                 height: req.session.data.height,
                 weight: req.session.data.weight,
+                wristDiameter: req.session.data.wristDiameter,
+                femurDiameter: req.session.data.femurDiameter,
                 bmi: req.session.data.bmi,
                 boneWeight: req.session.data.boneWeight,
                 muscleWeight: req.session.data.muscleWeight,
@@ -271,7 +298,6 @@ class Server {
             res.render('./myWorkouts/myWorkoutsshoulders')
         });
 
-
         this.app.get('/myWorkouts/triceps', isAuth, (req, res) => {
             res.render('./myWorkouts/myWorkoutsTriceps')
         });
@@ -299,6 +325,11 @@ class Server {
         //Rutas o urls a las views de la aplicación - updateSuccess
         this.app.get('/updateSuccess', isAuth, (req, res) => {
             res.render('updateSuccess');
+        });
+
+        //Rutas o urls a las views de la aplicación - calculationSuccess
+        this.app.get('/calculationSuccess', isAuth, (req, res) => {
+            res.render('calculationSuccess');
         });
 
         //Rutas o urls a las views de la aplicación - forgotPassword

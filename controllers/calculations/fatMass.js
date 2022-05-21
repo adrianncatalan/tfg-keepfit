@@ -3,21 +3,27 @@
 //Requerimos Request y Response de Express para usar sus métodos
 const { request, response } = require('express');
 
+//Me importo mi función de cálculo de bmi
+const { fatWeightCal } = require('./calculations');
+
 //Importamos nuestro modelo de user
 const User = require('../../models/userModel');
 
 //Lógica del endpoint PUT
-const updateAge = async (req = request, res = response) => {
+const fatMass = async (req = request, res = response) => {
 
     //Desestructuro el Id del usuario
-    const { id } = req.params;
+    const { id, weight, fatPercentage  } = req.params;
+
+    //Tener en cuenta que dividimos la altura entre 100 para que nos arroje un resultado en decimales, porque los valores están todos en enteros
+    req.body.fatWeight = fatWeightCal(weight, fatPercentage)
 
     //Actualizo al usuario por ID
     await User.findByIdAndUpdate(id, req.body);
 
     //Lo redireciono al settings, luego de actualizar
-    res.redirect('/updateSuccess');
+    res.redirect('/calculationSuccess');
 }
 
 //Exportamos nuestras funciones como objetos para usarlo en el directorio Routes
-module.exports.updateAge = updateAge;
+module.exports.fatMass = fatMass;

@@ -9,7 +9,7 @@ const { check } = require('express-validator')
 const { isRolValid, isEmailValid, isPhoneValid, existUserById } = require('../helpers/dbValidators')
 
 //Los bloques de código son exportados a través del index del directorio controllers
-const { updateName, updateSurname, updateAge, updateGender, updateHeight, updateWeight, updateWrist, updateFemur, updateEmail, updatePhone, updatePassword} = require('../controllers');
+const { bone, } = require('../controllers');
 
 //Los bloques de código son exportados a través del index del directorio middleware
 const { validation } = require('../middleware');
@@ -19,12 +19,12 @@ const router = Router();
 
 //Endpoint POST
 //Colocamos un ID para poder saber que tipo de usuario es
-router.post('/:id', [
+router.post('/:id/:weight/:height/:wristDiameter/:femurDiameter/', [
     check('id', 'No es un Id válido').isMongoId(),
     check('id').custom(existUserById),
     check('rol').custom(isRolValid),
     validation
-], updateName, updateSurname, updateAge, updateGender, updateHeight, updateWeight, updateWrist, updateFemur, updateEmail, updatePhone, updatePassword);
+], bone);
 
 //Exportamos el método Router
 module.exports = router;
