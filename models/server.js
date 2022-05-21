@@ -58,24 +58,22 @@ class Server {
         this.authPath = '/auth';
 
         //Me creo mi ruta de settings - update
-        this.settingsPath = '/settings';
+        this.settingsNamePath = '/settingsName';
+        this.settingsSurnamePath = '/settingsSurname';
+        this.settingsAgePath = '/settingsAge';
+        this.settingsGenderPath = '/settingsGender';
+        this.settingsHeightPath = '/settingsHeight';
+        this.settingsWeightPath = '/settingsWeight';
+        this.settingsEmailPath = '/settingsEmail';
+        this.settingsPhonePath = '/settingsPhone';
+        this.settingsPasswordPath = '/settingsPassword';
         
         //Me creo mi ruta de calculation - update
         this.calculationPath = '/calculation';
-
-        //Me creo mi ruta de calculation - update
         this.calculation2Path = '/calculation2';
-
-        //Me creo mi ruta de calculation - update
         this.calculation3Path = '/calculation3';
-
-        //Me creo mi ruta de calculation - update
         this.calculation4Path = '/calculation4';
-
-        //Me creo mi ruta de calculation - update
         this.calculation5Path = '/calculation5';
-
-        //Me creo mi ruta de calculation - update
         this.calculation6Path = '/calculation6';
 
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
@@ -138,13 +136,23 @@ class Server {
         //Dependiendo de la petición que se haga, get, post etc... se ejecutará el bloque de código correspondiente
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/users'));
-        this.app.use(this.settingsPath, require('../routes/settings'));
+        this.app.use(this.settingsNamePath, require('../routes/settingsName'));
+        this.app.use(this.settingsSurnamePath, require('../routes/settingsSurname'));
+        this.app.use(this.settingsAgePath, require('../routes/settingsAge'));
+        this.app.use(this.settingsGenderPath, require('../routes/settingsGender'));
+        this.app.use(this.settingsHeightPath, require('../routes/settingsHeight'));
+        this.app.use(this.settingsWeightPath, require('../routes/settingsWeight'));
+        this.app.use(this.settingsEmailPath, require('../routes/settingsEmail'));
+        this.app.use(this.settingsPhonePath, require('../routes/settingsPhone'));
+        this.app.use(this.settingsPasswordPath, require('../routes/settingsPassword'));
         this.app.use(this.calculationPath, require('../routes/calculation'));
         this.app.use(this.calculation2Path, require('../routes/calculation2'));
         this.app.use(this.calculation3Path, require('../routes/calculation3'));
         this.app.use(this.calculation4Path, require('../routes/calculation4'));
         this.app.use(this.calculation5Path, require('../routes/calculation5'));
         this.app.use(this.calculation6Path, require('../routes/calculation6'));
+
+        
         
 
         const isAuth = (req, res, next) => {

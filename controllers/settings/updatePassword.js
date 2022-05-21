@@ -12,18 +12,30 @@ const bcryptjs = require('bcryptjs');
 //Lógica del endpoint PUT
 const updatePassword = async (req = request, res = response) => {
 
+    // try {
+
+    //     const { id } = req.params;
+
+    //     const password = req.body.password;
+
+    //     const salt = await bcryptjs.genSaltSync();
+
+    // } catch (error) {
+
+    // }
+
+
+
     //Desestructuro el Id del usuario
     const { id } = req.params;
 
-    //Validar contra base de datos
-    if (req.body) {
-        //Número de vueltas para hashear el password, por defecto es 10
-        const salt = bcryptjs.genSaltSync();
-        //Hashear el password
-        req.body = bcryptjs.hashSync(password, salt);
-    }
+    const salt = await bcryptjs.genSaltSync();
 
-    //Actualizo al usuario por ID
+    //Hashear el password
+    req.body.password = await bcryptjs.hashSync(req.body.password, salt);
+
+    console.log(req.body.password)
+
     await User.findByIdAndUpdate(id, req.body);
 
     //Lo redireciono al settings, luego de actualizar
