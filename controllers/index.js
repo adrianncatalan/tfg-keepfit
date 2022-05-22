@@ -22,10 +22,10 @@ const muscleMass = require('./calculations/muscleMass');
 const residualMass = require('./calculations/residualMass');
 const fatMass = require('./calculations/fatMass');
 const fatPercentage = require('./calculations/fatPercentage');
-const uploadImgProfile = require('./img/imgProfile');
-const updateImg = require('./img/imgProfile');
-const uploadImgHeader = require('./img/imgHeader');
-
+const uploadsImgProfile = require('./img/uploadsImgProfile');
+const updateImg = require('./img/updateImg');
+const uploadsImgHeader = require('./img/uploadsImgHeader');
+const updateImgHeader = require('./img/updateImgHeader');
 
 //Exporto mis controladores
 module.exports = {
@@ -53,7 +53,8 @@ module.exports = {
     ...residualMass,
     ...fatMass,
     ...fatPercentage,
-    ...uploadImgProfile,
-    ...uploadImgHeader,
+    ...uploadsImgProfile,
     ...updateImg,
+    ...uploadsImgHeader,
+    ...updateImgHeader,
 }

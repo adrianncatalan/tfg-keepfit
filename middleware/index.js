@@ -4,10 +4,12 @@
 const validation = require('./validation/validation');
 const validationJwt = require('./validationJwt/validationJwt');
 const validationRoles = require('./validationRoles/validationRoles');
+const validarImg = require('./validarImg/validarImg')
 
 //Exporto los bloques de código
 module.exports = {
     ...validation,
     ...validationJwt,
     ...validationRoles,
+    ...validarImg,
 }

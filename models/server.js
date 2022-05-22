@@ -166,8 +166,8 @@ class Server {
         this.app.use(this.calculation4Path, require('../routes/calculation4'));
         this.app.use(this.calculation5Path, require('../routes/calculation5'));
         this.app.use(this.calculation6Path, require('../routes/calculation6'));
-        this.app.use(this.uploadsImgProfile, require('../routes/imgProfile'));
-        this.app.use(this.uploadsImgHeader, require('../routes/imgHeader'));
+        this.app.use(this.uploadsImgProfile, require('../routes/uploadsImgProfile'));
+        this.app.use(this.uploadsImgHeader, require('../routes/uploadsImgHeader'));
 
         const isAuth = (req, res, next) => {
             if (req.session.isAuth) {
