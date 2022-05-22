@@ -39,10 +39,21 @@ const existUserById = async (id) => {
     }
 }
 
+//Validación de colecciones
+const coleccionesPermitidas = (coleccion = '', colecciones = []) => {
+    const incluida = colecciones.includes(coleccion);
+
+    if (!incluida) {
+        throw new Error(`La colección ${coleccion} no es permitida, ${colecciones}`);
+    }
+    return true;
+}
+
 //Exportamos las funciones de validación
 module.exports = {
     isRolValid,
     isEmailValid,
     isPhoneValid,
     existUserById,
+    coleccionesPermitidas,
 }
