@@ -13,6 +13,11 @@ const updateImgProfile = async (req = request, res = response) => {
 
     const { id, coleccion } = req.params;
 
+    // const { imgProfile } = req.body;
+
+    // console.log(imgProfile)
+    // console.log(req.body)
+
     let modelo;
 
     switch (coleccion) {
@@ -31,7 +36,7 @@ const updateImgProfile = async (req = request, res = response) => {
             return res.status(500).json({ msg: 'Falta validación para este apartado de bloque de código' });
 
     }
-    
+
     //Limpiar imágenes del servidor
     if (modelo.imgProfile) {
 
@@ -51,7 +56,10 @@ const updateImgProfile = async (req = request, res = response) => {
 
     await modelo.save();
 
-    res.json({ modelo });
+    // res.json({ modelo });
+
+    //Lo redireciono al settings, luego de actualizar
+    res.redirect('/updateSuccess');
 
 }
 
