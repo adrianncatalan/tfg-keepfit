@@ -73,9 +73,11 @@ const UserSchema = Schema({
     },
     imgProfile: {
         type: String,
+        default: "",
     },
     imgHeader: {
         type: String,
+        default: "",
     },
     //Fecha de creación del usuario
     create_at: {

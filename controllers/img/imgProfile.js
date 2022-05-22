@@ -9,11 +9,14 @@ const uploadImgProfile = async (req = request, res = response) => {
         return;
     }
 
-    const nameFile = await uploadFile(req.files);
+    try {
+        const nameFile = await uploadFile(req.files, undefined, 'imgProfile');
+        res.json({ nameFile });
+    } catch (msg) {
+        res.status(400).json({ json });
+    }
 
-    res.json({
-        nameFile
-    });
+
 }
 
 module.exports.uploadImgProfile = uploadImgProfile;

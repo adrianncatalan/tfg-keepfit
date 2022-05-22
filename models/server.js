@@ -139,7 +139,8 @@ class Server {
         //Carga de archivos - Configuración
         this.app.use(fileUpload({
             useTempFiles: true,
-            tempFileDir: '/tmp/'
+            tempFileDir: '/tmp/',
+            createParentPath: true,
         }));
     }
 
@@ -201,6 +202,8 @@ class Server {
                 residualWeight: req.session.data.residualWeight,
                 fatWeight: req.session.data.fatWeight,
                 fatPercentage: req.session.data.fatPercentage,
+                imgProfile: req.session.data.imgProfile,
+                imgHeader: req.session.data.imgHeader,
             });
         });
 

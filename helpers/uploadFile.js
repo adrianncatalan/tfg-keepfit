@@ -2,7 +2,7 @@ const path = require('path');
 
 const { v4: uuidv4 } = require('uuid');
 
-const uploadFile = (files, extensionesValidas = ['png', 'jpg', 'jpeg'], imgProfile = '') => {
+const uploadFile = (files, extensionesValidas = ['png', 'jpg', 'jpeg'], carpeta = '') => {
 
     return new Promise((resolve, reject) => {
 
@@ -19,7 +19,7 @@ const uploadFile = (files, extensionesValidas = ['png', 'jpg', 'jpeg'], imgProfi
 
         const nombreTemp = uuidv4() + '.' + extension;
 
-        const uploadPath = path.join(__dirname, '../uploads/', imgProfile + nombreTemp);
+        const uploadPath = path.join(__dirname, '../uploads/', carpeta + '/' + nombreTemp);
 
         archivo.mv(uploadPath, (err) => {
             if (err) {
