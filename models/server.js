@@ -13,6 +13,9 @@ const hbs = require('hbs');
 //Requiero mi paquete para validar las sesiones de usuarios logeados
 const session = require('express-session');
 
+//Requiero el paquete de express-upload
+const fileUpload = require('express-fileupload');
+
 const path = require('path');
 
 //Requiero la conexión a la base de datos
@@ -67,7 +70,7 @@ class Server {
         this.settingsEmailPath = '/settingsEmail';
         this.settingsPhonePath = '/settingsPhone';
         this.settingsPasswordPath = '/settingsPassword';
-        
+
         //Me creo mi ruta de calculation - update
         this.calculationPath = '/calculation';
         this.calculation2Path = '/calculation2';
@@ -75,6 +78,10 @@ class Server {
         this.calculation4Path = '/calculation4';
         this.calculation5Path = '/calculation5';
         this.calculation6Path = '/calculation6';
+
+        //Rutas para subir fotos
+        this.uploadsImgProfile = '/uploadImgProfile';
+        this.uploadsImgHeader = '/uploadImgHeader';
 
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
         this.app.set('view engine', 'hbs'); //Si colocamos html, podemos cambiar el formato
@@ -127,6 +134,13 @@ class Server {
 
         //Me permite ver por consola cada petición que hago al servidor detalladamente
         this.app.use(morgan('dev'));
+
+        // Note that this option available for versions 1.0.0 and newer. 
+        //Carga de archivos - Configuración
+        this.app.use(fileUpload({
+            useTempFiles: true,
+            tempFileDir: '/tmp/'
+        }));
     }
 
     //Creamos un método routes, aquí definimos nuestras rutas
@@ -151,9 +165,8 @@ class Server {
         this.app.use(this.calculation4Path, require('../routes/calculation4'));
         this.app.use(this.calculation5Path, require('../routes/calculation5'));
         this.app.use(this.calculation6Path, require('../routes/calculation6'));
-
-        
-        
+        this.app.use(this.uploadsImgProfile, require('../routes/imgProfile'));
+        this.app.use(this.uploadsImgHeader, require('../routes/imgHeader'));
 
         const isAuth = (req, res, next) => {
             if (req.session.isAuth) {

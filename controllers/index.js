@@ -22,6 +22,8 @@ const muscleMass = require('./calculations/muscleMass');
 const residualMass = require('./calculations/residualMass');
 const fatMass = require('./calculations/fatMass');
 const fatPercentage = require('./calculations/fatPercentage');
+const uploadImgProfile = require('./img/imgProfile');
+const uploadImgHeader = require('./img/imgHeader');
 
 //Exporto mis controladores
 module.exports = {
@@ -48,5 +50,7 @@ module.exports = {
     ...muscleMass,
     ...residualMass,
     ...fatMass,
-    ...fatPercentage
+    ...fatPercentage,
+    ...uploadImgProfile,
+    ...uploadImgHeader,
 }
