@@ -26,7 +26,7 @@ const uploadFile = (files, extensionesValidas = ['png', 'jpg', 'jpeg'], carpeta 
                 return response.status(500).send(err);
             }
             resolve(nombreTemp);
-            console.log(path.join(__dirname, '../uploads/' + archivo.name));
+            // console.log(path.join(__dirname, '../uploads/' + archivo.name));
         });
     })
 }

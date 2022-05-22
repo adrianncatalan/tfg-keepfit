@@ -8,7 +8,7 @@ const { check } = require('express-validator')
 //Importamos nuestro archivo de validaciones
 const { validation, validarImg } = require('../middleware')
 
-const { uploadsImgProfile, updateImg } = require('../controllers');
+const { uploadsImgProfile, updateImgProfile } = require('../controllers');
 
 const { coleccionesPermitidas } = require('../helpers/dbValidators');
 
@@ -22,7 +22,7 @@ router.put('/:coleccion/:id', [
     check('id', 'El id debe ser de mongo').isMongoId(),
     check('coleccion').custom(c => coleccionesPermitidas(c, ['users', 'sessions', 'roles'])),
     validation
-], updateImg);
+], updateImgProfile);
 
 //Exportamos el router
 module.exports = router;

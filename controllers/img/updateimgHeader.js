@@ -2,6 +2,10 @@ const { request, response } = require('express');
 
 const { uploadFile } = require('../../helpers/uploadFile');
 
+const path = require('path');
+
+const fileSystem = require('fs');
+
 //Importamos nuestro modelo de user, lo colocamos en mayúscula porque vamos a instanciar el usuario
 const User = require('../../models/userModel');
 
@@ -28,7 +32,20 @@ const updateImgHeader = async (req = request, res = response) => {
 
     }
 
-    const nameFile = await uploadFile(req.files, undefined, 'imgHeader');
+    //Limpiar imágenes del servidor
+    if (modelo.imgHeader) {
+
+        const pathImg = path.join(__dirname, '../../uploads/', coleccion + '/' + modelo.imgHeader);
+
+        if (fileSystem.existsSync(pathImg)) {
+
+            fileSystem.unlinkSync(pathImg);
+
+        }
+
+    }
+
+    const nameFile = await uploadFile(req.files, undefined, 'users');
 
     modelo.imgHeader = nameFile;
 

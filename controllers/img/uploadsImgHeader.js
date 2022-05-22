@@ -5,7 +5,7 @@ const { uploadFile } = require('../../helpers/uploadFile');
 const uploadsImgHeader = async (req = request, res = response) => {
 
     try {
-        const nameFile = await uploadFile(req.files, undefined, 'imgHeader');
+        const nameFile = await uploadFile(req.files, undefined, 'users');
 
         res.json({ nameFile });
 
