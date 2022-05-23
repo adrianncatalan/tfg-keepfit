@@ -392,6 +392,11 @@ class Server {
         this.app.get('/dataNotFound', (req, res) => {
             res.render('dataNotFound')
         });
+
+        //Rutas o urls a las views de la aplicación - pageNotFound2
+        this.app.get('/dataNotFound2', (req, res) => {
+            res.render('dataNotFound2')
+        });
     }
 
     //Este método define el puerto que utiliza el servidor
