@@ -25,7 +25,7 @@ const updateImgProfile = async (req = request, res = response) => {
             modelo = await User.findById(id);
             if (!modelo) {
                 return res.status(400).json({
-                    msg: `No existe un usuaio con el id ${id}`
+                    msg: `No existe un usuario con el id ${id}`
                 });
             }
 

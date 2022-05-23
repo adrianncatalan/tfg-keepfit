@@ -65,7 +65,7 @@ const UserSchema = Schema({
         unique: true,
     },
     phone: {
-        type: Number,
+        type: String,
     },
     password: {
         type: String,
@@ -77,12 +77,11 @@ const UserSchema = Schema({
     },
     imgHeader: {
         type: String,
-        
     },
     //Fecha de creación del usuario
     create_at: {
         type: Date,
-        default: Date.now,
+        default: Date.now, 
     },
     //Tipos de roles de los usuarios
     rol: {

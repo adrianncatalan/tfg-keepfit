@@ -80,8 +80,8 @@ class Server {
         this.calculation6Path = '/calculation6';
 
         //Rutas para subir fotos
-        // this.uploadsImgProfile = '/uploadImgProfile';
-        // this.uploadsImgHeader = '/uploadImgHeader';
+        this.uploadsImgProfile = '/uploadsImgProfile';
+        this.uploadsImgHeader = '/uploadsImgHeader';
 
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
         this.app.set('view engine', 'hbs'); //Si colocamos html, podemos cambiar el formato
@@ -166,8 +166,8 @@ class Server {
         this.app.use(this.calculation4Path, require('../routes/calculation4'));
         this.app.use(this.calculation5Path, require('../routes/calculation5'));
         this.app.use(this.calculation6Path, require('../routes/calculation6'));
-        // this.app.use(this.uploadsImgProfile, require('../routes/uploadsImgProfile'));
-        // this.app.use(this.uploadsImgHeader, require('../routes/uploadsImgHeader'));
+        this.app.use(this.uploadsImgProfile, require('../routes/uploadsImgProfile'));
+        this.app.use(this.uploadsImgHeader, require('../routes/uploadsImgHeader'));
 
         const isAuth = (req, res, next) => {
             if (req.session.isAuth) {

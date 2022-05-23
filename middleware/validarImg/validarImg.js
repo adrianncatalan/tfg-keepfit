@@ -6,14 +6,11 @@ const validarImg = (req = request, res = response, next) => {
 
         return res.status(400).json({ msg: 'No hay archivos para subir - Validar IMG' });
 
-        console.log(path.join(__dirname));
+        // console.log(path.join(__dirname));
     }
 
     next();
 }
 
-module.exports = {
+module.exports.validarImg = validarImg;
 
-    validarImg,
-
-}
