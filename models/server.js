@@ -92,10 +92,10 @@ class Server {
         // this.app.engine('html', require('hbs').__express);
 
         // Solo para visualizar la ruta absoluta de mis partials
-        // console.log(path.join(__dirname));
+        console.log(path.join(__dirname, '../' + 'partials'));
 
         //Por alguna razón la ruta absoluta esta en models, se ha pasado el partial al directorio models
-        hbs.registerPartials(path.join(__dirname, '/partials'));
+        hbs.registerPartials(path.join(__dirname, '../' + 'partials'));
 
         //Hacemos la conexión a la base de datos
         this.connectionDB();
@@ -388,14 +388,14 @@ class Server {
             res.render('pageNotFound')
         });
 
-        //Rutas o urls a las views de la aplicación - pageNotFound
+        //Rutas o urls a las views de la aplicación - dataNotFound
         this.app.get('/dataNotFound', (req, res) => {
             res.render('dataNotFound')
         });
 
-        //Rutas o urls a las views de la aplicación - pageNotFound2
-        this.app.get('/dataNotFound2', (req, res) => {
-            res.render('dataNotFound2')
+        //Rutas o urls a las views de la aplicación - dataNotFound2
+        this.app.get('/dataNotFoundValues', (req, res) => {
+            res.render('dataNotFoundValues')
         });
     }
 

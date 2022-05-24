@@ -30,9 +30,8 @@ const bmi = async (req = request, res = response) => {
 
     //Actualizo al usuario por ID
     await User.findByIdAndUpdate(id, req.body);
-
     //Lo redireciono al settings, luego de actualizar
-    res.redirect('/calculationSuccess');
+    res.redirect('/dataNotFoundValues');
 }
 
 //Exportamos nuestras funciones como objetos para usarlo en el directorio Routes
