@@ -394,7 +394,7 @@ class Server {
         });
 
         //Rutas o urls a las views de la aplicación - dataNotFound2
-        this.app.get('/dataNotFoundValues', (req, res) => {
+        this.app.get('/dataNotFoundValues', isAuth, (req, res) => {
             res.render('dataNotFoundValues')
         });
     }
