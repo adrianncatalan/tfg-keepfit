@@ -8,9 +8,11 @@
     color: white;
     font-family: arial;
     text-align: center;
-    border-radius: 50px;
-    margin-right: 14rem;
-    margin-left: 14rem;
+    width: 100%;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .cookies_button {
@@ -23,18 +25,25 @@
     text-align: center;
 }
 
-.cookies_button:hover{
-    color:black;
+.cookies_button:hover {
+    color: black;
     background-color: white;
 }
 
-.cookies_buttons{
+.cookies_buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
 }
 
-.cookies h2,p{
-    font-size: 20px;
+.cookies h2, p {
+    font-size: 1.5em;
+}
+
+.parrafo {
+    
+    font-size: 1em;
+    margin-top: 1em;
+
 }

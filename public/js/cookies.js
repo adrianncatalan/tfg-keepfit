@@ -5,18 +5,21 @@ window.addEventListener("load", () => {
     section.id="message"
 
     const h2 = document.createElement("h2");
-    h2.textContent="¿Aceptas nuestras Cookies?";
+    h2.textContent="We have updated our privacy and cookie policy";
     
     const p = document.createElement("p");
-    p.textContent = "Usamos cookies para mejorar tu experiencia en la web."
-
-    const section_button = document.createElement("div");
-    section_button.className="cookies_buttons"
+    p.className = "parrafo";
+    p.textContent = "We have made important changes to our privacy and cookie policy and want you to know what this means for you and your data."
 
     const buttonAccept = document.createElement("button");
     buttonAccept.textContent = "Yes"
     buttonAccept.className="cookies_button"
     buttonAccept.id = "buttonAccept"
+
+    const section_button = document.createElement("div");
+    section_button.className="cookies_buttons"
+
+    
 
     const buttonReadCookiesPolicy = document.createElement("button");
     buttonReadCookiesPolicy.textContent = "Read cookies Policy"
