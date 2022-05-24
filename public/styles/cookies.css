@@ -16,29 +16,35 @@
 }
 
 .cookies_button {
-    border: 2px solid white;
-    margin: 5rem;
-    padding: 1rem;
-    font-size: 1rem;
+    background-color: white;
+    margin: 3em;
+    padding: 1em;
+    font-size: 1em;
     color: white;
-    width: 15rem;
+    width: 10em;
     text-align: center;
+    color: black;
+    font-weight: bold;
+    border-radius: 0.5em;
+    opacity: 0.7;
+    align-items: center;
 }
 
 .cookies_button:hover {
-    color: black;
     background-color: white;
+    transition: 0.3s ease-out;
+    opacity: 1;
 }
 
 .cookies_buttons {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
-.cookies h2, p {
+.cookies h2 {
     font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 2em;
 }
 
 .parrafo {

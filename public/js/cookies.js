@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
     
 
     const buttonReadCookiesPolicy = document.createElement("button");
-    buttonReadCookiesPolicy.textContent = "Read cookies Policy"
+    buttonReadCookiesPolicy.textContent = "Read more"
     buttonReadCookiesPolicy.className="cookies_button"
 
     const footer = document.getElementById("footer")
