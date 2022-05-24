@@ -1,0 +1,40 @@
+.cookies {
+    position: fixed;
+    padding: 1rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #4f46e5;
+    color: white;
+    font-family: arial;
+    text-align: center;
+    border-radius: 50px;
+    margin-right: 14rem;
+    margin-left: 14rem;
+}
+
+.cookies_button {
+    border: 2px solid white;
+    margin: 5rem;
+    padding: 1rem;
+    font-size: 1rem;
+    color: white;
+    width: 15rem;
+    text-align: center;
+}
+
+.cookies_button:hover{
+    color:black;
+    background-color: white;
+}
+
+.cookies_buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cookies h2,p{
+    font-size: 20px;
+}
